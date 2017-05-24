@@ -31,12 +31,36 @@ import java.util.List;
 /**
  * Provides some helpful methods for binary operations.
  * @author Ralph Niemitz/RalleYTN(ralph.niemitz@gmx.de)
- * @version 1.1.0
+ * @version 1.1.1
  * @since 1.1.0
  */
 public final class BinaryUtils {
 
 	private BinaryUtils() {}
+	
+	/**
+	 * Reads an {@code int} octet for octet.
+	 * @param integer {@code int} from which you want only one octet
+	 * @param position position from the right side
+	 * @return the octet on the given position
+	 * @since 1.1.1
+	 */
+	public static final int getOctet(int integer, int position) {
+		
+		return (integer >> (position * 8)) & 0xFF;
+	}
+	
+	/**
+	 * Reads an {@code int} bit by bit.
+	 * @param integer {@code int} from which you want only one bit
+	 * @param position position from the right side
+	 * @return the bit on the given position
+	 * @since 1.1.1
+	 */
+	public static final boolean getBit(int integer, int position) {
+		
+		return ((integer >> position) & 1) == 1;
+	}
 	
 	/**
 	 * Builds an unsigned {@code int} with from four octets.
