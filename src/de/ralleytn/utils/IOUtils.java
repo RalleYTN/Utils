@@ -112,7 +112,7 @@ public final class IOUtils {
 	public static final long readUnsignedInt(InputStream inputStream) throws IOException {
 		
 		int[] octets = IOUtils.read(inputStream, 4);
-		return BinaryUtils.getUnsignedInteger(octets[0], octets[1], octets[2], octets[3]);
+		return BinaryUtils.getUnsignedInteger(octets[3], octets[2], octets[1], octets[0]);
 	}
 	
 	/**
@@ -125,7 +125,7 @@ public final class IOUtils {
 	public static final int readSignedInt(InputStream inputStream) throws IOException {
 		
 		int[] octets = IOUtils.read(inputStream, 4);
-		return BinaryUtils.getSignedInteger(octets[0], octets[1], octets[2], octets[3]);
+		return BinaryUtils.getSignedInteger(octets[3], octets[2], octets[1], octets[0]);
 	}
 	
 	/**
