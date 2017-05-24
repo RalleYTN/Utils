@@ -40,9 +40,9 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 
 /**
- * 
+ * Provides some helpful methods regarding ZIP files.
  * @author Ralph Niemitz/RalleYTN(ralph.niemitz@gmx.de)
- * @version 1.0.0
+ * @version 1.1.1
  * @since 1.0.0
  */
 public final class ZipUtils {
@@ -50,10 +50,10 @@ public final class ZipUtils {
 	private ZipUtils() {}
 	
 	/**
-	 * 
-	 * @param zip
-	 * @param callback
-	 * @throws IOException
+	 * Goes through all entries of a ZIP file.
+	 * @param zip the ZIP file you want to go through
+	 * @param callback the function to be called on every entry
+	 * @throws IOException if an I/O error occurs
 	 * @since 1.0.0
 	 */
 	public static final void forEach(File zip, Consumer<ZipEntry> callback) throws IOException {
@@ -70,11 +70,11 @@ public final class ZipUtils {
 	}
 	
 	/**
-	 * 
-	 * @param zip
-	 * @param entry
-	 * @return
-	 * @throws IOException
+	 * Opens an {@linkplain InputStream} to one of the entries in the given ZIP file.
+	 * @param zip the ZIP file containing the entry to which you want an {@linkplain InputStream} opened
+	 * @param entry the entry you want to open
+	 * @return the resulting {@linkplain InputStream}
+	 * @throws IOException if an I/O error occurs
 	 * @since 1.0.0
 	 */
 	public static final InputStream getInputStream(File zip, String entry) throws IOException {
@@ -86,14 +86,13 @@ public final class ZipUtils {
 	}
 	
 	/**
-	 * 
-	 * @param zip
-	 * @param files
-	 * @return
-	 * @throws IOException
+	 * Packs a new ZIP file.
+	 * @param zip the {@linkplain File} object representing 
+	 * @param files A {@linkplain Map} object representing the structure of the resulting ZIP file
+	 * @throws IOException if an I/O error occurs
 	 * @since 1.0.0
 	 */
-	public static final File pack(File zip, Map<String, File> files) throws IOException {
+	public static final void pack(File zip, Map<String, File> files) throws IOException {
 
 		if(zip.exists() && zip.getName().toUpperCase().endsWith(".ZIP") && zip.isFile()) {
 			
@@ -121,50 +120,48 @@ public final class ZipUtils {
 				}
 			}
 		}
-		
-		return zip;
 	}
 	
 	/**
-	 * 
-	 * @param zip
-	 * @param targetDirectory
-	 * @throws IOException
+	 * Unpacks a ZIP file's content to a given directory.
+	 * @param zip the ZIP file you want to unpack
+	 * @param targetDirectory the directory in which the contents of the ZIP file will be put in
+	 * @throws IOException if an I/O error occurs
 	 * @since 1.0.0
 	 */
 	public static final void unpack(File zip, File targetDirectory) throws IOException {
 
-		ZipUtils.forEach(zip, entry -> {
-			
-			if(!entry.isDirectory()) {
+		try(ZipFile zipFile = new ZipFile(zip)) {
 
-				String entryName = entry.getName().replace("/", File.separator).replace("\\", File.separator);
-				File targetFile = new File(targetDirectory.getAbsolutePath() + File.separator + entryName);
-				File targetFilesParentDirectory = targetFile.getParentFile();
+			Enumeration<? extends ZipEntry> enumeration = zipFile.entries();
 
-				if(!targetFilesParentDirectory.exists()) {
+			while(enumeration.hasMoreElements()) {
 
-					targetFilesParentDirectory.mkdirs();
-				}
-
-				try {
-					
-					Files.copy(FileSystems.newFileSystem(zip.toPath(), null).getPath(entryName), targetFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+				ZipEntry entry = enumeration.nextElement();
 				
-				} catch(IOException exception) {
-					
-					exception.printStackTrace();
+				if(!entry.isDirectory()) {
+
+					String entryName = entry.getName().replace("/", File.separator).replace("\\", File.separator);
+					File targetFile = new File(targetDirectory.getAbsolutePath() + File.separator + entryName);
+					File targetFilesParentDirectory = targetFile.getParentFile();
+
+					if(!targetFilesParentDirectory.exists()) {
+
+						targetFilesParentDirectory.mkdirs();
+					}
+
+					Files.copy(FileSystems.newFileSystem(zip.toPath(), null).getPath(entryName), targetFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
 				}
 			}
-		});
+		}
 	}
 	
 	/**
-	 * 
-	 * @param zip
-	 * @param entry
-	 * @param target
-	 * @throws IOException
+	 * Extracts an entry from a ZIP file. 
+	 * @param zip the ZIP file from which you want to extract an entry
+	 * @param entry name of the entry you want to extract
+	 * @param target the target file
+	 * @throws IOException if an I/O error occurs
 	 * @since 1.0.0
 	 */
 	public static final void extract(File zip, String entry, File target) throws IOException {

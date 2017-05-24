@@ -34,7 +34,7 @@ import javax.imageio.ImageIO;
 /**
  * 
  * @author Ralph Niemitz/RalleYTN(ralph.niemitz@gmx.de)
- * @version 1.0.0
+ * @version 1.1.1
  * @since 1.0.0
  */
 public final class ImageUtils {
@@ -45,12 +45,11 @@ public final class ImageUtils {
 	 * 
 	 * @param image
 	 * @param format
-	 * @param type
 	 * @return
 	 * @throws IOException
 	 * @since 1.0.0
 	 */
-	public static final byte[] getBase64(BufferedImage image, String format, int type) throws IOException {
+	public static final byte[] getBase64(BufferedImage image, String format) throws IOException {
 		
 		try(ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
 			

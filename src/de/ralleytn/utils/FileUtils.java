@@ -45,11 +45,11 @@ public final class FileUtils {
 	private FileUtils() {}
 	
 	/**
-	 * 
-	 * @param file
-	 * @param targetDirectory
-	 * @return
-	 * @throws IOException
+	 * Moves a file into another directory.
+	 * @param file the file you want to move
+	 * @param targetDirectory the directory in which the file should end up
+	 * @return the moved file
+	 * @throws IOException if an I/O error occurs
 	 * @since 1.0.0
 	 */
 	public static final File move(File file, File targetDirectory) throws IOException {
@@ -63,11 +63,11 @@ public final class FileUtils {
 	}
 	
 	/**
-	 * 
-	 * @param file
-	 * @param targetDirectory
-	 * @return
-	 * @throws IOException
+	 * Copies a file in another directory
+	 * @param file the file you want to copy
+	 * @param targetDirectory the directory in which the copy should end up
+	 * @return the copied file
+	 * @throws IOException if an I/O error occurs
 	 * @since 1.0.0
 	 */
 	public static final File copy(File file, File targetDirectory) throws IOException {
@@ -81,10 +81,10 @@ public final class FileUtils {
 	}
 	
 	/**
-	 * 
-	 * @param name
-	 * @return
-	 * @throws IOException
+	 * Creates a file in the temp directory which will be deleted automatically when the JVM exits.
+	 * @param name relative name of the temp file from the temp directory as root
+	 * @return the created temp file
+	 * @throws IOException if an I/O error occurs
 	 * @since 1.0.0
 	 */
 	public static final File createTempFile(String name) throws IOException {
@@ -104,8 +104,8 @@ public final class FileUtils {
 	}
 	
 	/**
-	 * 
-	 * @param directory
+	 * Deletes a directory.
+	 * @param directory the directory that should be deleted
 	 * @since 1.0.0
 	 */
 	public static final void deleteDirectory(File directory) {
@@ -127,9 +127,9 @@ public final class FileUtils {
 	}
 	
 	/**
-	 * 
-	 * @param root
-	 * @param callback
+	 * Crawls through the file structure of a root directory.
+	 * @param root the root directory
+	 * @param callback the function to call on all files
 	 * @since 1.0.0
 	 */
 	public static final void crawl(File root, Consumer<File> callback) {
@@ -152,10 +152,11 @@ public final class FileUtils {
 	}
 	
 	/**
-	 * 
-	 * @param root
-	 * @param filter
-	 * @return
+	 * Crawls through the file structure of a root directory and creates a list to which all files who pass the
+	 * {@linkplain FileFilter} will be added.
+	 * @param root the root directory
+	 * @param filter the filter to apply
+	 * @return a list of all filtered files
 	 * @since 1.0.0
 	 */
 	public static final List<File> search(File root, FileFilter filter) {

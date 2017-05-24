@@ -31,6 +31,7 @@ import java.awt.Dimension;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.MouseInfo;
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.Toolkit;
@@ -46,7 +47,7 @@ import java.util.Map;
 /**
  * Provides some helpful methods if you want to get some informations from the system.
  * @author Ralph Niemitz/RalleYTN(ralph.niemitz@gmx.de)
- * @version 1.0.0
+ * @version 1.1.1
  * @since 1.0.0
  */
 public final class SystemUtils {
@@ -206,8 +207,7 @@ public final class SystemUtils {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return the maximum amount of memory that the virtual machine will attempt to use, measured in bytes
 	 * @since 1.0.0
 	 */
 	public static final long getMaximumMemory() {
@@ -216,8 +216,7 @@ public final class SystemUtils {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return the total amount of memory currently available for current and future objects, measured in bytes
 	 * @since 1.0.0
 	 */
 	public static final long getTotalMemory() {
@@ -226,8 +225,7 @@ public final class SystemUtils {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return an approximation to the total amount of memory currently available for future allocated objects, measured in bytes
 	 * @since 1.0.0
 	 */
 	public static final long getFreeMemory() {
@@ -236,8 +234,7 @@ public final class SystemUtils {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return the maximum number of processors available to the virtual machine; never smaller than one
 	 * @since 1.0.0
 	 */
 	public static final int getNumberOfProcessors() {
@@ -246,8 +243,7 @@ public final class SystemUtils {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return the {@linkplain GraphicsDevice} object representing the default screen
 	 * @since 1.0.0
 	 */
 	public static final GraphicsDevice getDefaultScreen() {
@@ -256,8 +252,7 @@ public final class SystemUtils {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return an array containing all the {@linkplain GraphicsDevice} objects that represent screen devices
 	 * @since 1.0.0
 	 */
 	public static final GraphicsDevice[] getScreens() {
@@ -266,8 +261,7 @@ public final class SystemUtils {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return A {@linkplain Dimension} object containg the screen size of the default screen
 	 * @since 1.0.0
 	 */
 	public static final Dimension getScreenSize() {
@@ -276,9 +270,8 @@ public final class SystemUtils {
 	}
 	
 	/**
-	 * 
-	 * @return
-	 * @throws AWTException
+	 * @return a screenshot of the default screen
+	 * @throws AWTException if the platform configuration does not allow low-level input control. This exception is always thrown when {@linkplain GraphicsEnvironment#isHeadless()} returns {@code true}
 	 * @since 1.0.0
 	 */
 	public static final BufferedImage screenshot() throws AWTException {
@@ -289,8 +282,30 @@ public final class SystemUtils {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @param complete {@code true} if the screenshot should include all screens, {@code false} for the default screen only
+	 * @return a screenshot
+	 * @throws AWTException if the platform configuration does not allow low-level input control. This exception is always thrown when {@linkplain GraphicsEnvironment#isHeadless()} returns {@code true}
+	 * @since 1.1.1
+	 */
+	public static final BufferedImage screenshot(boolean complete) throws AWTException {
+		
+		if(complete) {
+			
+			Rectangle size = new Rectangle();
+			
+			for(GraphicsDevice screen : SystemUtils.getScreens()) {
+				
+				size = size.union(screen.getDefaultConfiguration().getBounds());
+			}
+			
+			return new Robot().createScreenCapture(size);
+		}
+		
+		return SystemUtils.screenshot();
+	}
+	
+	/**
+	 * @return the number of buttons on the mouse... duh!
 	 * @since 1.0.0
 	 */
 	public static final int getNumberOfMouseButtons() {
@@ -299,8 +314,7 @@ public final class SystemUtils {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return the {@linkplain GraphicsDevice} object representing the screen the mouse cursor is currently in
 	 * @since 1.0.0
 	 */
 	public static final GraphicsDevice getScreenWithMouseCursorInIt() {
@@ -309,8 +323,16 @@ public final class SystemUtils {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return the position of the mouse cursor
+	 * @since 1.1.1
+	 */
+	public static final Point getMouseCursorLocation() {
+		
+		return MouseInfo.getPointerInfo().getLocation();
+	}
+	
+	/**
+	 * @return the operating system in which this program is run
 	 * @since 1.0.0
 	 */
 	public static final OperatingSystem getOperatingSystem() {
@@ -320,8 +342,7 @@ public final class SystemUtils {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return the system language
 	 * @since 1.0.0
 	 */
 	public static final String getLanguage() {
@@ -330,8 +351,7 @@ public final class SystemUtils {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return the system country
 	 * @since 1.0.0
 	 */
 	public static final String getCountry() {
@@ -340,8 +360,7 @@ public final class SystemUtils {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return a {@linkplain File} object representing the temp directory of the JVM (by default also the system temp directory)
 	 * @since 1.0.0
 	 */
 	public static final File getTempDirectory() {
@@ -350,8 +369,7 @@ public final class SystemUtils {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return the home directory of the currently logged in user
 	 * @since 1.0.0
 	 */
 	public static final File getUserHomeDirectory() {
@@ -360,8 +378,7 @@ public final class SystemUtils {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return the name of the currently logged in user
 	 * @since 1.0.0
 	 */
 	public static final String getUsername() {
@@ -370,8 +387,7 @@ public final class SystemUtils {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return the java version with which this program is run
 	 * @since 1.0.0
 	 */
 	public static final String getJavaVersion() {
@@ -380,7 +396,7 @@ public final class SystemUtils {
 	}
 	
 	/**
-	 * 
+	 * Representing an operating system.
 	 * @author Ralph Niemitz/RalleYTN(ralph.niemitz@gmx.de)
 	 * @version 1.0.0
 	 * @since 1.0.0
@@ -388,37 +404,37 @@ public final class SystemUtils {
 	public static enum OperatingSystem {
 		
 		/**
-		 * 
+		 * Windows
 		 * @since 1.0.0
 		 */
 		WINDOWS,
 		
 		/**
-		 * 
+		 * Linux
 		 * @since 1.0.0
 		 */
 		LINUX,
 		
 		/**
-		 * 
+		 * Mac OS X
 		 * @since 1.0.0
 		 */
 		MAC,
 		
 		/**
-		 * 
+		 * Android
 		 * @since 1.0.0
 		 */
 		ANDROID,
 		
 		/**
-		 * 
+		 * Solaris
 		 * @since 1.0.0
 		 */
 		SOLARIS,
 		
 		/**
-		 * 
+		 * Unknown
 		 * @since 1.0.0
 		 */
 		UNKNOWN;
