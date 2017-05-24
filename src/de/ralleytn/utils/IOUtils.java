@@ -31,6 +31,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Provides some helpful method regarding input and output.
@@ -41,6 +43,49 @@ import java.nio.charset.Charset;
 public final class IOUtils {
 
 	private IOUtils() {}
+	
+	/**
+	 * Reads until it finds the given sequence in the {@linkplain InputStream}.
+	 * If the end of the stream is reached and the sequence wasn't found an {@linkplain IOException} is thrown.
+	 * @param inputStream the {@linkplain InputStream} in which you want to find a given sequence
+	 * @param sequencethe sequence you search for
+	 * @throws IOException if an I/O error occurs or the end of the stream was reached while the sequence wasn't found
+	 * @since 1.1.1
+	 */
+	public static final void readUntil(InputStream inputStream, int[] sequence) throws IOException {
+		
+		List<Integer> readBytes = new ArrayList<>();
+		int readByte = -1;
+		
+		while((readByte = inputStream.read()) != -1) {
+			
+			if(readBytes.size() >= sequence.length - 1) {
+				
+				boolean correct = true;
+				int current = 1;
+				
+				for(int index = sequence.length - 2; index >= 0; index--) {
+					
+					if(readBytes.get(readBytes.size() - current) != sequence[index]) {
+						
+						correct = false;
+						break;
+					}
+					
+					current++;
+				}
+				
+				if(correct && readByte == sequence[sequence.length - 1]) {
+					
+					return;
+				}
+			}
+			
+			readBytes.add(readByte);
+		}
+		
+		throw new IOException("Could not find the given sequence!");
+	}
 	
 	/**
 	 * Reads a {@linkplain String} with the given length from the {@linkplain InputStream}.
