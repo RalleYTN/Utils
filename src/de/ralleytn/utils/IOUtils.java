@@ -30,11 +30,12 @@ import java.io.Flushable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.charset.Charset;
 
 /**
- * 
+ * Provides some helpful method regarding input and output.
  * @author Ralph Niemitz/RalleYTN(ralph.niemitz@gmx.de)
- * @version 1.0.0
+ * @version 1.1.1
  * @since 1.0.0
  */
 public final class IOUtils {
@@ -42,10 +43,71 @@ public final class IOUtils {
 	private IOUtils() {}
 	
 	/**
-	 * 
-	 * @param inputStream
-	 * @return
-	 * @throws IOException
+	 * Reads a {@linkplain String} with the given length from the {@linkplain InputStream}.
+	 * @param inputStream the {@linkplain InputStream} from which the data is read
+	 * @param length the length of the data
+	 * @param charset the {@linkplain Charset} with which the data will be encoded
+	 * @return the resulting {@linkplain String}
+	 * @throws IOException if an I/O error occurs
+	 * @since 1.1.1
+	 */
+	public static final String readString(InputStream inputStream, int length, Charset charset) throws IOException {
+		
+		int[] octets = IOUtils.read(inputStream, length);
+		return new String(BinaryUtils.toByteArray(octets), charset.name());
+	}
+	
+	/**
+	 * Reads the next four bytes of the stream and returns them as an unsigned integer.
+	 * @param inputStream the {@linkplain InputStream} to read the data from
+	 * @return an unsigned ineteger
+	 * @throws IOException if an I/O error occurs
+	 * @since 1.1.1
+	 */
+	public static final long readUnsignedInt(InputStream inputStream) throws IOException {
+		
+		int[] octets = IOUtils.read(inputStream, 4);
+		return BinaryUtils.getUnsignedInteger(octets[0], octets[1], octets[2], octets[3]);
+	}
+	
+	/**
+	 * Reads the next four bytes of the stream and returns them as a signed integer.
+	 * @param inputStream the {@linkplain InputStream} to read the data from
+	 * @return an unsigned ineteger
+	 * @throws IOException if an I/O error occurs
+	 * @since 1.1.1
+	 */
+	public static final int readSignedInt(InputStream inputStream) throws IOException {
+		
+		int[] octets = IOUtils.read(inputStream, 4);
+		return BinaryUtils.getSignedInteger(octets[0], octets[1], octets[2], octets[3]);
+	}
+	
+	/**
+	 * Reads a fixed amount of unsigned {@code byte}s from an {@linkplain InputStream}.
+	 * @param inputStream the {@linkplain InputStream} from which you want to read the data
+	 * @param length the length of data to be read
+	 * @return the read data
+	 * @throws IOException if an I/O error occurs
+	 * @since 1.1.1
+	 */
+	public static final int[] read(InputStream inputStream, int length) throws IOException {
+		
+		int[] data = new int[length];
+		
+		for(int index = 0; index < data.length; index++) {
+			
+			data[index] = inputStream.read();
+		}
+		
+		return data;
+	}
+	
+	/**
+	 * Reads an entire {@linkplain InputStream}.
+	 * @param inputStream the {@linkplain InputStream} to read
+	 * @return the read data
+	 * @throws IOException if an I/O error occurs
 	 * @since 1.0.0
 	 */
 	public static final byte[] read(InputStream inputStream) throws IOException {
@@ -58,10 +120,10 @@ public final class IOUtils {
 	}
 	
 	/**
-	 * 
-	 * @param inputStream
-	 * @param outputStream
-	 * @throws IOException
+	 * Writes the contents from the given {@linkplain InputStream} on the {@linkplain OutputStream}.
+	 * @param inputStream the {@linkplain InputStream}
+	 * @param outputStream the {@linkplain OutputStream}
+	 * @throws IOException if an I/O error occurs
 	 * @since 1.0.0
 	 */
 	public static final void write(InputStream inputStream, OutputStream outputStream) throws IOException {
@@ -78,8 +140,9 @@ public final class IOUtils {
 	}
 	
 	/**
-	 * 
-	 * @param flushable
+	 * Calls {@link Flushable#flush()} without throwing an exception and only if the given {@linkplain Flushable}
+	 * is not {@code null}.
+	 * @param flushable the {@linkplain Flushable} you want to flush
 	 * @since 1.0.0
 	 */
 	public static final void flush(Flushable flushable) {
@@ -95,8 +158,9 @@ public final class IOUtils {
 	}
 
 	/**
-	 * 
-	 * @param closeable
+	 * Calls {@link Closable#close()} without throwing an exception and only if the given {@linkplain Closable}
+	 * is not {@code null}.
+	 * @param closeable the {@linkplain Closable} you want to close
 	 * @since 1.0.0
 	 */
 	public static final void close(Closeable closeable) {
