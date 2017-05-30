@@ -28,9 +28,9 @@ import java.text.Normalizer;
 import java.util.ArrayList;
 
 /**
- * 
+ * Provides some helpful methods regarding strings.
  * @author Ralph Niemitz/RalleYTN(ralph.niemitz@gmx.de)
- * @version 1.0.0
+ * @version 1.2.0
  * @since 1.0.0
  */
 public final class StringUtils {
@@ -38,11 +38,10 @@ public final class StringUtils {
 	private StringUtils() {}
 
 	/**
-	 * 
-	 * @param string
-	 * @param min
-	 * @param max
-	 * @return
+	 * @param string the {@linkplain String} to process
+	 * @param min minimum length
+	 * @param max maximum length
+	 * @return {@code true} if the length is bigger or equal than the given minimum length and smaller or equal the given maximum length, else {@code false}
 	 * @since 1.0.0
 	 */
 	public static final boolean hasALengthBetween(String string, int min, int max) {
@@ -51,9 +50,8 @@ public final class StringUtils {
 	}
 
 	/**
-	 * 
-	 * @param string
-	 * @return
+	 * @param string the {@linkplain String} to process
+	 * @return {@code true} if the given string is already in lower case, else {@code false}
 	 * @since 1.0.0
 	 */
 	public static final boolean isLowerCase(String string) {
@@ -62,9 +60,8 @@ public final class StringUtils {
 	}
 
 	/**
-	 * 
-	 * @param string
-	 * @return
+	 * @param string the {@linkplain String} to process
+	 * @return {@code true} if the given string is already in upper case, else {@code false}
 	 * @since 1.0.0
 	 */
 	public static final boolean isUpperCase(String string) {
@@ -73,18 +70,36 @@ public final class StringUtils {
 	}
 
 	/**
-	 * 
-	 * @param string
-	 * @return
+	 * @param string the {@linkplain String} to process
+	 * @return {@code true} if the given string can be parsed as a floating point number, else {@code false}
 	 * @since 1.0.0
 	 */
 	public static final boolean isParsableNumber(String string) {
+		
+		return StringUtils.isParsableNumber(string, true);
+	}
+	
+	/**
+	 * @param string string the {@linkplain String} to process
+	 * @param floatingPoint set this to {@code true} if you want to include floating point numbers
+	 * @return {@code true} if the given string can be parsed as a number, else {@code false}
+	 * @since 1.2.0
+	 */
+	public static final boolean isParsableNumber(String string, boolean floatingPoint) {
 		
 		if(string != null) {
 			
 			try {
 				
-				Double.parseDouble(string);
+				if(floatingPoint) {
+					
+					Double.parseDouble(string);
+				
+				} else {
+					
+					Long.parseLong(string);
+				}
+				
 				return true;
 				
 			} catch(NumberFormatException exception) {}
@@ -94,33 +109,33 @@ public final class StringUtils {
 	}
 
 	/**
-	 * 
-	 * @param string
-	 * @param sequence
-	 * @return
+	 * Does the same as {@link String#endsWith(String)} but it ignores the case.
+	 * @param string the {@linkplain String} to process
+	 * @param suffix the suffix
+	 * @return {@code true} if the given string ends with {@code prefix} (case doesn't matter), else {@code false}
 	 * @since 1.0.0
 	 */
-	public static final boolean endsWithIgnoreCase(String string, String sequence) {
+	public static final boolean endsWithIgnoreCase(String string, String suffix) {
 		
-		return string.toUpperCase().endsWith(sequence.toUpperCase());
+		return string.toUpperCase().endsWith(suffix.toUpperCase());
 	}
 
 	/**
-	 * 
-	 * @param string
-	 * @param sequence
-	 * @return
+	 * Does the same as {@link String#startsWith(String)} but it ignores the case.
+	 * @param string the {@linkplain String} to process
+	 * @param prefix the prefix
+	 * @return {@code true} if the given string starts with {@code prefix} (case doesn't matter), else {@code false}
 	 * @since 1.0.0
 	 */
-	public static final boolean startsWithIgnoreCase(String string, String sequence) {
+	public static final boolean startsWithIgnoreCase(String string, String prefix) {
 		
-		return string.toUpperCase().startsWith(sequence.toUpperCase());
+		return string.toUpperCase().startsWith(prefix.toUpperCase());
 	}
 
 	/**
-	 * 
-	 * @param string
-	 * @return
+	 * Reverses a string.
+	 * @param string the {@linkplain String} to process
+	 * @return the reversed version of the given string
 	 * @since 1.0.0
 	 */
 	public static final String reverse(String string) {
@@ -129,9 +144,8 @@ public final class StringUtils {
 	}
 
 	/**
-	 * 
-	 * @param character
-	 * @return
+	 * @param character the character you want to escape
+	 * @return the escaped character
 	 * @since 1.0.0
 	 */
 	public static final String getEscapedCharacter(char character) {
@@ -140,10 +154,9 @@ public final class StringUtils {
 	}
 
 	/**
-	 * 
-	 * @param text
-	 * @param character
-	 * @return
+	 * @param text the text to search in
+	 * @param character the character you search for
+	 * @return the number of occurences of the given character in the given text
 	 * @since 1.0.0
 	 */
 	public static final int getNumberOfOccurrences(String text, char character) {
@@ -161,10 +174,9 @@ public final class StringUtils {
 	}
 
 	/**
-	 * 
-	 * @param text
-	 * @param term
-	 * @return
+	 * @param text the text to search in
+	 * @param term the term you search for
+	 * @return the number of occurences of the given term in the given text
 	 * @since 1.0.0
 	 */
 	public static final int getNumberOfOccurrences(String text, String term) {
@@ -182,10 +194,11 @@ public final class StringUtils {
 	}
 
 	/**
-	 * 
-	 * @param text
-	 * @param term
-	 * @return
+	 * Searches for a term in a text and returns the positions at which the term was found.
+	 * If the term wasn't found, an array with the length {@code 0} is returned.
+	 * @param text text in which the term should be searched for
+	 * @param term the term that is searched for
+	 * @return an array with all indexes at which the term was found
 	 * @since 1.0.0
 	 */
 	public static final int[] search(String text, String term) {
@@ -194,11 +207,12 @@ public final class StringUtils {
 	}
 
 	/**
-	 * 
-	 * @param text
-	 * @param term
-	 * @param ignoreCase
-	 * @return
+	 * Searches for a term in a text and returns the positions at which the term was found.
+	 * If the term wasn't found, an array with the length {@code 0} is returned.
+	 * @param text text in which the term should be searched for
+	 * @param term the term that is searched for
+	 * @param ignoreCase set this to true if lower and upper case don't matter
+	 * @return an array with all indexes at which the term was found
 	 * @since 1.0.0
 	 */
 	public static final int[] search(String text, String term, boolean ignoreCase) {
@@ -223,10 +237,10 @@ public final class StringUtils {
 	}
 
 	/**
-	 * 
-	 * @param string
-	 * @param maxLength
-	 * @return
+	 * Truncates a string.
+	 * @param string the {@linkplain String} to process
+	 * @param maxLength maximum length of the string
+	 * @return a string with a maximum of {@code maxLength} characters
 	 * @since 1.0.0
 	 */
 	public static final String truncate(String string, int maxLength) {
@@ -235,11 +249,11 @@ public final class StringUtils {
 	}
 
 	/**
-	 * 
-	 * @param string
-	 * @param maxLength
-	 * @param offset
-	 * @return
+	 * Truncates a string.
+	 * @param string the {@linkplain String} to process
+	 * @param maxLength maxmimum length of the string
+	 * @param offset offset
+	 * @return a string beginning at {@code offset} with a maximum length of {@code maxLength} characters
 	 * @since 1.0.0
 	 */
 	public static final String tuncate(String string, int maxLength, int offset) {
@@ -248,14 +262,15 @@ public final class StringUtils {
 	}
 
 	/**
-	 * 
-	 * @param input
-	 * @return
+	 * Removes all accents from a string and replaces them with their latin counterpart.
+	 * For example {@code "Äpfél"} is turned into {@code "Apfel"}.
+	 * @param string the {@linkplain String} to process
+	 * @return a string with only latin letters
 	 * @since 1.0.0
 	 */
-    public static String removeAccents(String input) {
+    public static String removeAccents(String string) {
 
-        StringBuilder decomposed = new StringBuilder(Normalizer.normalize(input, Normalizer.Form.NFD));
+        StringBuilder decomposed = new StringBuilder(Normalizer.normalize(string, Normalizer.Form.NFD));
 
         for(int index = 0; index < decomposed.length(); index++) {
         	
@@ -275,9 +290,9 @@ public final class StringUtils {
     }
 
     /**
-     * 
-     * @param string
-     * @return
+     * Trims out all blank spaces at both ends of the string, removes all {@code NULL} characters, tabulaters, line breaks etc. and all double white spaces.
+     * @param string the {@linkplain String} to process
+     * @return a fully trimmed string
      * @since 1.0.0
      */
     public static final String fullTrim(String string) {
@@ -304,9 +319,8 @@ public final class StringUtils {
 	}
 
     /**
-     * 
-     * @param string
-     * @return
+     * @param string the {@linkplain String} to process
+     * @return {@code true} if the given string doesn't just contain empty spaces or tabs, else {@code false}
      * @since 1.0.0
      */
 	public static final boolean isBlank(String string) {
@@ -315,10 +329,9 @@ public final class StringUtils {
 	}
 
 	/**
-	 * 
-	 * @param string
-	 * @param characters
-	 * @return
+	 * @param string the {@linkplain String} to process
+	 * @param characters array of characters
+	 * @return {@code true} if the given string is only made of the given characters, else {@code false}
 	 * @since 1.0.0
 	 */
 	public static final boolean containsOnly(String string, char... characters) {

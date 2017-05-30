@@ -27,19 +27,47 @@ package de.ralleytn.utils;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Base64;
 
+import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
+import javax.imageio.ImageWriteParam;
+import javax.imageio.ImageWriter;
+import javax.imageio.stream.ImageOutputStream;
 
 /**
- * 
+ * Provides some helpful methods regarding images.
  * @author Ralph Niemitz/RalleYTN(ralph.niemitz@gmx.de)
- * @version 1.1.1
+ * @version 1.2.0
  * @since 1.0.0
  */
 public final class ImageUtils {
 
 	private ImageUtils() {}
+	
+	/**
+	 * 
+	 * @param image
+	 * @param output
+	 * @param quality
+	 * @throws IOException
+	 * @since 1.2.0
+	 */
+	public static final void writeJPEG(BufferedImage image, OutputStream output, float quality) throws IOException {
+		
+		ImageWriter writer = ImageIO.getImageWritersByFormatName("JPEG").next();
+		ImageWriteParam param = writer.getDefaultWriteParam();
+		param.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
+		param.setCompressionQuality(quality);
+		
+		try(ImageOutputStream stream = ImageIO.createImageOutputStream(output)) {
+			
+			writer.setOutput(stream);
+			writer.write(null, new IIOImage(image, null, null), param);
+			writer.setOutput(null);
+		}
+	}
 	
 	/**
 	 * 

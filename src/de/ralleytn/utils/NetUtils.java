@@ -40,7 +40,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 
+ * Provides some helpful methods regarding the world wide web.
  * @author Ralph Niemitz/RalleYTN(ralph.niemitz@gmx.de)
  * @version 1.0.0
  * @since 1.0.0
@@ -50,10 +50,10 @@ public final class NetUtils {
 	private NetUtils() {}
 	
 	/**
-	 * 
-	 * @param url
-	 * @return
-	 * @throws UnsupportedEncodingException
+	 * Extracts all query parameters from an URL.
+	 * @param url the URL you want to extract the query parameters from
+	 * @return A map with all the query parameters of the given URL
+	 * @throws UnsupportedEncodingException if UTF-8 is not supported... that should really not happen
 	 * @since 1.0.0
 	 */
 	public static final Map<String, ?> getQueryParams(URL url) throws UnsupportedEncodingException {
@@ -106,11 +106,11 @@ public final class NetUtils {
 	}
 	
 	/**
-	 * 
-	 * @param url
-	 * @return
-	 * @throws MalformedURLException
-	 * @throws UnsupportedEncodingException
+	 * Extracts all query parameters from an URL.
+	 * @param url the URL you want to extract the query parameters from
+	 * @return A map with all the query parameters of the given URL
+	 * @throws MalformedURLException if no protocol is specified, or an unknown protocol is found, or spec is {@code null}.
+	 * @throws UnsupportedEncodingException if UTF-8 is not supported... that should really not happen
 	 * @since 1.0.0
 	 */
 	public static final Map<String, ?> getQueryParams(String url) throws MalformedURLException, UnsupportedEncodingException {
@@ -119,15 +119,13 @@ public final class NetUtils {
 	}
 	
 	/**
-	 * 
-	 * @param map
-	 * @return
-	 * @throws ArrayIndexOutOfBoundsException
-	 * @throws UnsupportedEncodingException
-	 * @throws IllegalArgumentException
+	 * Builds a query string from a map.
+	 * @param map the map from which the query string should be built
+	 * @return the resulting query string
+	 * @throws UnsupportedEncodingException if UTF-8 is not supported... that should really not happen
 	 * @since 1.0.0
 	 */
-	public static final String getQueryString(Map<String, ?> map) throws ArrayIndexOutOfBoundsException, UnsupportedEncodingException, IllegalArgumentException {
+	public static final String getQueryString(Map<String, ?> map) throws UnsupportedEncodingException {
 
 		StringBuilder result = new StringBuilder().append('?');
 		boolean first = true;

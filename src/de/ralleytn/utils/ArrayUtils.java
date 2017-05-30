@@ -31,12 +31,162 @@ import java.util.List;
 /**
  * Provides useful methods for working with arrays.
  * @author Ralph Niemitz/RalleYTN(ralph.niemitz@gmx.de)
- * @version 1.0.0
+ * @version 1.2.0
  * @since 1.0.0
  */
 public final class ArrayUtils {
 
 	private ArrayUtils() {}
+	
+	/**
+	 * 
+	 * @param array
+	 * @param value
+	 * @since 1.2.0
+	 */
+	public static final <T>void fill(T[] array, T value) {
+		
+		if(array != null) {
+			
+			for(int index = 0; index < array.length; index++) {
+				
+				array[index] = value;
+			}
+		}
+	}
+
+	/**
+	 * 
+	 * @param array
+	 * @param value
+	 * @since 1.2.0
+	 */
+	public static final void fill(boolean[] array, boolean value) {
+		
+		if(array != null) {
+			
+			for(int index = 0; index < array.length; index++) {
+				
+				array[index] = value;
+			}
+		}
+	}
+
+	/**
+	 * 
+	 * @param array
+	 * @param value
+	 * @since 1.2.0
+	 */
+	public static final void fill(byte[] array, byte value) {
+		
+		if(array != null) {
+			
+			for(int index = 0; index < array.length; index++) {
+				
+				array[index] = value;
+			}
+		}
+	}
+
+	/**
+	 * 
+	 * @param array
+	 * @param value
+	 * @since 1.2.0
+	 */
+	public static final void fill(short[] array, short value) {
+		
+		for(int index = 0; index < array.length; index++) {
+			
+			array[index] = value;
+		}
+	}
+
+	/**
+	 * 
+	 * @param array
+	 * @param value
+	 * @since 1.2.0
+	 */
+	public static final void fill(char[] array, char value) {
+		
+		if(array != null) {
+			
+			for(int index = 0; index < array.length; index++) {
+				
+				array[index] = value;
+			}
+		}
+	}
+
+	/**
+	 * 
+	 * @param array
+	 * @param value
+	 * @since 1.2.0
+	 */
+	public static final void fill(int[] array, int value) {
+		
+		if(array != null) {
+			
+			for(int index = 0; index < array.length; index++) {
+				
+				array[index] = value;
+			}
+		}
+	}
+
+	/**
+	 * 
+	 * @param array
+	 * @param value
+	 * @since 1.2.0
+	 */
+	public static final void fill(long[] array, long value) {
+		
+		if(array != null) {
+			
+			for(int index = 0; index < array.length; index++) {
+				
+				array[index] = value;
+			}
+		}
+	}
+
+	/**
+	 * 
+	 * @param array
+	 * @param value
+	 * @since 1.2.0
+	 */
+	public static final void fill(float[] array, float value) {
+		
+		if(array != null) {
+			
+			for(int index = 0; index < array.length; index++) {
+				
+				array[index] = value;
+			}
+		}
+	}
+
+	/**
+	 * 
+	 * @param array
+	 * @param value
+	 * @since 1.2.0
+	 */
+	public static final void fill(double[] array, double value) {
+		
+		if(array != null) {
+			
+			for(int index = 0; index < array.length; index++) {
+				
+				array[index] = value;
+			}
+		}
+	}
 
 	/**
 	 * 
@@ -1735,160 +1885,950 @@ public final class ArrayUtils {
 
 		return object != null ? object.getClass().isArray() : false;
 	}
-
+	
 	/**
 	 * 
 	 * @param type
-	 * @param first
-	 * @param second
+	 * @param arrays
 	 * @return
-	 * @since 1.0.0
+	 * @since 1.2.0
 	 */
 	@SuppressWarnings("unchecked")
-	public static final <T>T[] merge(Class<T> type, T[] first, T[] second) {
-
+	public static final <T>T[] merge(Class<T> type, T[]... arrays) {
+		
 		ArrayList<T> newArray = new ArrayList<>();
 		
-		for(int index = 0; index < first.length; index++) newArray.add(first[index]);
-		for(int index = 0; index < second.length; index++) newArray.add(second[index]);
+		for(T[] array : arrays) {
+			
+			for(T element : array) {
+				
+				newArray.add(element);
+			}
+		}
 		
 		return newArray.toArray((T[])Array.newInstance(type, newArray.size()));
 	}
-
+	
 	/**
 	 * 
-	 * @param first
-	 * @param second
+	 * @param arrays
 	 * @return
-	 * @since 1.0.0
+	 * @since 1.2.0
 	 */
-	public static final boolean[] merge(boolean[] first, boolean[] second) {
-
+	public static final boolean[] merge(boolean[]... arrays) {
+		
 		ArrayList<Boolean> newArray = new ArrayList<>();
 		
-		for(int index = 0; index < first.length; index++) newArray.add(first[index]);
-		for(int index = 0; index < second.length; index++) newArray.add(second[index]);
+		for(boolean[] array : arrays) {
+			
+			for(boolean element : array) {
+				
+				newArray.add(element);
+			}
+		}
 		
 		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Boolean[newArray.size()]));
 	}
-
+	
 	/**
 	 * 
-	 * @param first
-	 * @param second
+	 * @param arrays
 	 * @return
-	 * @since 1.0.0
+	 * @since 1.2.0
 	 */
-	public static final byte[] merge(byte[] first, byte[] second) {
-
-		ArrayList<Byte> newArray = new ArrayList<>();
+	public static final char[] merge(char[]... arrays) {
 		
-		for(int index = 0; index < first.length; index++) newArray.add(first[index]);
-		for(int index = 0; index < second.length; index++) newArray.add(second[index]);
-		
-		return ArrayUtils.toPrimitiveArray(newArray.toArray((Byte[])new Byte[newArray.size()]));
-	}
-
-	/**
-	 * 
-	 * @param first
-	 * @param second
-	 * @return
-	 * @since 1.0.0
-	 */
-	public static final short[] merge(short[] first, short[] second) {
-
-		ArrayList<Short> newArray = new ArrayList<>();
-		
-		for(int index = 0; index < first.length; index++) newArray.add(first[index]);
-		for(int index = 0; index < second.length; index++) newArray.add(second[index]);
-		
-		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Short[newArray.size()]));
-	}
-
-	/**
-	 * 
-	 * @param first
-	 * @param second
-	 * @return
-	 * @since 1.0.0
-	 */
-	public static final char[] merge(char[] first, char[] second) {
-
 		ArrayList<Character> newArray = new ArrayList<>();
 		
-		for(int index = 0; index < first.length; index++) newArray.add(first[index]);
-		for(int index = 0; index < second.length; index++) newArray.add(second[index]);
+		for(char[] array : arrays) {
+			
+			for(char element : array) {
+				
+				newArray.add(element);
+			}
+		}
 		
 		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Character[newArray.size()]));
 	}
-
+	
 	/**
 	 * 
-	 * @param first
-	 * @param second
+	 * @param arrays
 	 * @return
-	 * @since 1.0.0
+	 * @since 1.2.0
 	 */
-	public static final int[] merge(int[] first, int[] second) {
-
+	public static final byte[] merge(byte[]... arrays) {
+		
+		ArrayList<Byte> newArray = new ArrayList<>();
+		
+		for(byte[] array : arrays) {
+			
+			for(byte element : array) {
+				
+				newArray.add(element);
+			}
+		}
+		
+		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Byte[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param arrays
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final short[] merge(short[]... arrays) {
+		
+		ArrayList<Short> newArray = new ArrayList<>();
+		
+		for(short[] array : arrays) {
+			
+			for(short element : array) {
+				
+				newArray.add(element);
+			}
+		}
+		
+		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Short[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param arrays
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final int[] merge(int[]... arrays) {
+		
 		ArrayList<Integer> newArray = new ArrayList<>();
 		
-		for(int index = 0; index < first.length; index++) newArray.add(first[index]);
-		for(int index = 0; index < second.length; index++) newArray.add(second[index]);
+		for(int[] array : arrays) {
+			
+			for(int element : array) {
+				
+				newArray.add(element);
+			}
+		}
 		
 		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Integer[newArray.size()]));
 	}
-
+	
 	/**
 	 * 
-	 * @param first
-	 * @param second
+	 * @param arrays
 	 * @return
-	 * @since 1.0.0
+	 * @since 1.2.0
 	 */
-	public static final long[] merge(long[] first, long[] second) {
-
+	public static final long[] merge(long[]... arrays) {
+		
 		ArrayList<Long> newArray = new ArrayList<>();
 		
-		for(int index = 0; index < first.length; index++) newArray.add(first[index]);
-		for(int index = 0; index < second.length; index++) newArray.add(second[index]);
+		for(long[] array : arrays) {
+			
+			for(long element : array) {
+				
+				newArray.add(element);
+			}
+		}
 		
 		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Long[newArray.size()]));
 	}
-
+	
 	/**
 	 * 
-	 * @param first
-	 * @param second
+	 * @param arrays
 	 * @return
-	 * @since 1.0.0
+	 * @since 1.2.0
 	 */
-	public static final float[] merge(float[] first, float[] second) {
-
+	public static final float[] merge(float[]... arrays) {
+		
 		ArrayList<Float> newArray = new ArrayList<>();
 		
-		for(int index = 0; index < first.length; index++) newArray.add(first[index]);
-		for(int index = 0; index < second.length; index++) newArray.add(second[index]);
+		for(float[] array : arrays) {
+			
+			for(float element : array) {
+				
+				newArray.add(element);
+			}
+		}
 		
 		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Float[newArray.size()]));
 	}
-
+	
 	/**
 	 * 
-	 * @param first
-	 * @param second
+	 * @param arrays
 	 * @return
-	 * @since 1.0.0
+	 * @since 1.2.0
 	 */
-	public static final double[] merge(double[] first, double[] second) {
-
+	public static final double[] merge(double[]... arrays) {
+		
 		ArrayList<Double> newArray = new ArrayList<>();
 		
-		for(int index = 0; index < first.length; index++) newArray.add(first[index]);
-		for(int index = 0; index < second.length; index++) newArray.add(second[index]);
+		for(double[] array : arrays) {
+			
+			for(double element : array) {
+				
+				newArray.add(element);
+			}
+		}
 		
 		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Double[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param type
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	@SuppressWarnings("unchecked")
+	public static final <T>T[] flatten(Class<T> type, T[][] array) {
+		
+		ArrayList<T> newArray = new ArrayList<>();
+		
+		for(T[] d2 : array) {
+			
+			for(T d1 : d2) {
+				
+				newArray.add(d1);
+			}
+		}
+		
+		return newArray.toArray((T[])Array.newInstance(type, newArray.size()));
+	}
+	
+	/**
+	 * 
+	 * @param type
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	@SuppressWarnings("unchecked")
+	public static final <T>T[] flatten(Class<T> type, T[][][] array) {
+		
+		ArrayList<T> newArray = new ArrayList<>();
+		
+		for(T[][] d3 : array) {
+			
+			for(T[] d2 : d3) {
+				
+				for(T d1 : d2) {
+					
+					newArray.add(d1);
+				}
+			}
+		}
+		
+		return newArray.toArray((T[])Array.newInstance(type, newArray.size()));
+	}
+	
+	/**
+	 * 
+	 * @param type
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	@SuppressWarnings("unchecked")
+	public static final <T>T[] flatten(Class<T> type, T[][][][] array) {
+		
+		ArrayList<T> newArray = new ArrayList<>();
+		
+		for(T[][][] d4 : array) {
+			
+			for(T[][] d3 : d4) {
+				
+				for(T[] d2 : d3) {
+					
+					for(T d1 : d2) {
+						
+						newArray.add(d1);
+					}
+				}
+			}
+		}
+		
+		return newArray.toArray((T[])Array.newInstance(type, newArray.size()));
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final boolean[] flatten(boolean[][] array) {
+		
+		ArrayList<Boolean> newArray = new ArrayList<>();
+		
+		for(boolean[] d2 : array) {
+			
+			for(boolean d1 : d2) {
+				
+				newArray.add(d1);
+			}
+		}
+		
+		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Boolean[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final boolean[] flatten(boolean[][][] array) {
+		
+		ArrayList<Boolean> newArray = new ArrayList<>();
+		
+		for(boolean[][] d3 : array) {
+			
+			for(boolean[] d2 : d3) {
+				
+				for(boolean d1 : d2) {
+					
+					newArray.add(d1);
+				}
+			}
+		}
+		
+		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Boolean[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final boolean[] flatten(boolean[][][][] array) {
+		
+		ArrayList<Boolean> newArray = new ArrayList<>();
+		
+		for(boolean[][][] d4 : array) {
+			
+			for(boolean[][] d3 : d4) {
+				
+				for(boolean[] d2 : d3) {
+					
+					for(boolean d1 : d2) {
+						
+						newArray.add(d1);
+					}
+				}
+			}
+		}
+		
+		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Boolean[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final char[] flatten(char[][] array) {
+		
+		ArrayList<Character> newArray = new ArrayList<>();
+		
+		for(char[] d2 : array) {
+			
+			for(char d1 : d2) {
+				
+				newArray.add(d1);
+			}
+		}
+		
+		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Character[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final char[] flatten(char[][][] array) {
+		
+		ArrayList<Character> newArray = new ArrayList<>();
+		
+		for(char[][] d3 : array) {
+			
+			for(char[] d2 : d3) {
+				
+				for(char d1 : d2) {
+					
+					newArray.add(d1);
+				}
+			}
+		}
+		
+		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Character[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final char[] flatten(char[][][][] array) {
+		
+		ArrayList<Character> newArray = new ArrayList<>();
+		
+		for(char[][][] d4 : array) {
+			
+			for(char[][] d3 : d4) {
+				
+				for(char[] d2 : d3) {
+					
+					for(char d1 : d2) {
+						
+						newArray.add(d1);
+					}
+				}
+			}
+		}
+		
+		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Character[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final byte[] flatten(byte[][] array) {
+		
+		ArrayList<Byte> newArray = new ArrayList<>();
+		
+		for(byte[] d2 : array) {
+			
+			for(byte d1 : d2) {
+				
+				newArray.add(d1);
+			}
+		}
+		
+		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Byte[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final byte[] flatten(byte[][][] array) {
+		
+		ArrayList<Byte> newArray = new ArrayList<>();
+		
+		for(byte[][] d3 : array) {
+			
+			for(byte[] d2 : d3) {
+				
+				for(byte d1 : d2) {
+					
+					newArray.add(d1);
+				}
+			}
+		}
+		
+		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Byte[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final byte[] flatten(byte[][][][] array) {
+		
+		ArrayList<Byte> newArray = new ArrayList<>();
+		
+		for(byte[][][] d4 : array) {
+			
+			for(byte[][] d3 : d4) {
+				
+				for(byte[] d2 : d3) {
+					
+					for(byte d1 : d2) {
+						
+						newArray.add(d1);
+					}
+				}
+			}
+		}
+		
+		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Byte[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final short[] flatten(short[][] array) {
+		
+		ArrayList<Short> newArray = new ArrayList<>();
+		
+		for(short[] d2 : array) {
+			
+			for(short d1 : d2) {
+				
+				newArray.add(d1);
+			}
+		}
+		
+		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Short[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final short[] flatten(short[][][] array) {
+		
+		ArrayList<Short> newArray = new ArrayList<>();
+		
+		for(short[][] d3 : array) {
+			
+			for(short[] d2 : d3) {
+				
+				for(short d1 : d2) {
+					
+					newArray.add(d1);
+				}
+			}
+		}
+		
+		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Short[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final short[] flatten(short[][][][] array) {
+		
+		ArrayList<Short> newArray = new ArrayList<>();
+		
+		for(short[][][] d4 : array) {
+			
+			for(short[][] d3 : d4) {
+				
+				for(short[] d2 : d3) {
+					
+					for(short d1 : d2) {
+						
+						newArray.add(d1);
+					}
+				}
+			}
+		}
+		
+		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Short[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final int[] flatten(int[][] array) {
+		
+		ArrayList<Integer> newArray = new ArrayList<>();
+		
+		for(int[] d2 : array) {
+			
+			for(int d1 : d2) {
+				
+				newArray.add(d1);
+			}
+		}
+		
+		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Integer[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final int[] flatten(int[][][] array) {
+		
+		ArrayList<Integer> newArray = new ArrayList<>();
+		
+		for(int[][] d3 : array) {
+			
+			for(int[] d2 : d3) {
+				
+				for(int d1 : d2) {
+					
+					newArray.add(d1);
+				}
+			}
+		}
+		
+		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Integer[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final int[] flatten(int[][][][] array) {
+		
+		ArrayList<Integer> newArray = new ArrayList<>();
+		
+		for(int[][][] d4 : array) {
+			
+			for(int[][] d3 : d4) {
+				
+				for(int[] d2 : d3) {
+					
+					for(int d1 : d2) {
+						
+						newArray.add(d1);
+					}
+				}
+			}
+		}
+		
+		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Integer[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final long[] flatten(long[][] array) {
+		
+		ArrayList<Long> newArray = new ArrayList<>();
+		
+		for(long[] d2 : array) {
+			
+			for(long d1 : d2) {
+				
+				newArray.add(d1);
+			}
+		}
+		
+		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Long[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final long[] flatten(long[][][] array) {
+		
+		ArrayList<Long> newArray = new ArrayList<>();
+		
+		for(long[][] d3 : array) {
+			
+			for(long[] d2 : d3) {
+				
+				for(long d1 : d2) {
+					
+					newArray.add(d1);
+				}
+			}
+		}
+		
+		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Long[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final long[] flatten(long[][][][] array) {
+		
+		ArrayList<Long> newArray = new ArrayList<>();
+		
+		for(long[][][] d4 : array) {
+			
+			for(long[][] d3 : d4) {
+				
+				for(long[] d2 : d3) {
+					
+					for(long d1 : d2) {
+						
+						newArray.add(d1);
+					}
+				}
+			}
+		}
+		
+		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Long[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final float[] flatten(float[][] array) {
+		
+		ArrayList<Float> newArray = new ArrayList<>();
+		
+		for(float[] d2 : array) {
+			
+			for(float d1 : d2) {
+				
+				newArray.add(d1);
+			}
+		}
+		
+		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Float[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final float[] flatten(float[][][] array) {
+		
+		ArrayList<Float> newArray = new ArrayList<>();
+		
+		for(float[][] d3 : array) {
+			
+			for(float[] d2 : d3) {
+				
+				for(float d1 : d2) {
+					
+					newArray.add(d1);
+				}
+			}
+		}
+		
+		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Float[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final float[] flatten(float[][][][] array) {
+		
+		ArrayList<Float> newArray = new ArrayList<>();
+		
+		for(float[][][] d4 : array) {
+			
+			for(float[][] d3 : d4) {
+				
+				for(float[] d2 : d3) {
+					
+					for(float d1 : d2) {
+						
+						newArray.add(d1);
+					}
+				}
+			}
+		}
+		
+		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Float[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final double[] flatten(double[][] array) {
+		
+		ArrayList<Double> newArray = new ArrayList<>();
+		
+		for(double[] d2 : array) {
+			
+			for(double d1 : d2) {
+				
+				newArray.add(d1);
+			}
+		}
+		
+		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Double[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final double[] flatten(double[][][] array) {
+		
+		ArrayList<Double> newArray = new ArrayList<>();
+		
+		for(double[][] d3 : array) {
+			
+			for(double[] d2 : d3) {
+				
+				for(double d1 : d2) {
+					
+					newArray.add(d1);
+				}
+			}
+		}
+		
+		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Double[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final double[] flatten(double[][][][] array) {
+		
+		ArrayList<Double> newArray = new ArrayList<>();
+		
+		for(double[][][] d4 : array) {
+			
+			for(double[][] d3 : d4) {
+				
+				for(double[] d2 : d3) {
+					
+					for(double d1 : d2) {
+						
+						newArray.add(d1);
+					}
+				}
+			}
+		}
+		
+		return ArrayUtils.toPrimitiveArray(newArray.toArray(new Double[newArray.size()]));
+	}
+	
+	/**
+	 * 
+	 * @param arrays
+	 * @return
+	 * @since 1.2.0
+	 */
+	@SuppressWarnings("unchecked")
+	public static final <T>T[][] combine(T[]... arrays) {
+		
+		return arrays;
+	}
+	
+	/**
+	 * 
+	 * @param arrays
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final boolean[][] combine(boolean[]... arrays) {
+		
+		return arrays;
+	}
+	
+	/**
+	 * 
+	 * @param arrays
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final char[][] combine(char[]... arrays) {
+		
+		return arrays;
+	}
+	
+	/**
+	 * 
+	 * @param arrays
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final byte[][] combine(byte[]... arrays) {
+		
+		return arrays;
+	}
+	
+	/**
+	 * 
+	 * @param arrays
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final short[][] combine(short[]... arrays) {
+		
+		return arrays;
+	}
+	
+	/**
+	 * 
+	 * @param arrays
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final int[][] combine(int[]... arrays) {
+		
+		return arrays;
+	}
+	
+	/**
+	 * 
+	 * @param arrays
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final long[][] combine(long[]... arrays) {
+		
+		return arrays;
+	}
+	
+	/**
+	 * 
+	 * @param arrays
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final float[][] combine(float[]... arrays) {
+		
+		return arrays;
+	}
+	
+	/**
+	 * 
+	 * @param arrays
+	 * @return
+	 * @since 1.2.0
+	 */
+	public static final double[][] conmbine(double[]... arrays) {
+		
+		return arrays;
 	}
 
 	/**
