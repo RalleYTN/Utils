@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * Provides some helpful method regarding input and output.
  * @author Ralph Niemitz/RalleYTN(ralph.niemitz@gmx.de)
- * @version 1.1.1
+ * @version 1.2.1
  * @since 1.0.0
  */
 public final class IOUtils {
@@ -103,6 +103,19 @@ public final class IOUtils {
 	}
 	
 	/**
+	 * 
+	 * @param inputStream
+	 * @return
+	 * @throws IOException
+	 * @since 1.2.1
+	 */
+	public static final long readUnsignedInt(InputStream inputStream, boolean bigEndian) throws IOException {
+		
+		int[] octets = IOUtils.read(inputStream, 4);
+		return BinaryUtils.getUnsignedInteger(octets[3], octets[2], octets[1], octets[0], bigEndian);
+	}
+	
+	/**
 	 * Reads the next four bytes of the stream and returns them as an unsigned integer.
 	 * @param inputStream the {@linkplain InputStream} to read the data from
 	 * @return an unsigned ineteger
@@ -113,6 +126,20 @@ public final class IOUtils {
 		
 		int[] octets = IOUtils.read(inputStream, 4);
 		return BinaryUtils.getUnsignedInteger(octets[3], octets[2], octets[1], octets[0]);
+	}
+	
+	/**
+	 * 
+	 * @param inputStream
+	 * @param bigEndian
+	 * @return
+	 * @throws IOException
+	 * @since 1.2.1
+	 */
+	public static final int readSignedInt(InputStream inputStream, boolean bigEndian) throws IOException {
+		
+		int[] octets = IOUtils.read(inputStream, 4);
+		return BinaryUtils.getSignedInteger(octets[3], octets[2], octets[1], octets[0], bigEndian);
 	}
 	
 	/**

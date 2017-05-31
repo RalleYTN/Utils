@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * Provides some helpful methods for binary operations.
  * @author Ralph Niemitz/RalleYTN(ralph.niemitz@gmx.de)
- * @version 1.1.1
+ * @version 1.2.1
  * @since 1.1.0
  */
 public final class BinaryUtils {
@@ -63,7 +63,7 @@ public final class BinaryUtils {
 	}
 	
 	/**
-	 * Builds an unsigned {@code int} with from four octets.
+	 * Builds an unsigned {@code int} from four octets. big endian.
 	 * @param o1 first octet
 	 * @param o2 second octet
 	 * @param o3 third octet
@@ -73,11 +73,26 @@ public final class BinaryUtils {
 	 */
 	public static final long getUnsignedInteger(int o1, int o2, int o3, int o4) {
 		
-		return BinaryUtils.getSignedInteger(o1, o2, o3, o4) & 0xFFFFFFFFL;
+		return BinaryUtils.getSignedInteger(o1, o2, o3, o4, true) & 0xFFFFFFFFL;
 	}
 	
 	/**
-	 * Builds a signed {@code int} with from four octets.
+	 * 
+	 * @param o1
+	 * @param o2
+	 * @param o3
+	 * @param o4
+	 * @param bigEndian
+	 * @return
+	 * @since 1.2.1
+	 */
+	public static final long getUnsignedInteger(int o1, int o2, int o3, int o4, boolean bigEndian) {
+		
+		return BinaryUtils.getSignedInteger(o1, o2, o3, o4, bigEndian) & 0xFFFFFFFFL;
+	}
+	
+	/**
+	 * Builds a signed {@code int} from four octets. big endian.
 	 * @param o1 first octet
 	 * @param o2 second octet
 	 * @param o3 third octet
@@ -87,7 +102,22 @@ public final class BinaryUtils {
 	 */
 	public static final int getSignedInteger(int o1, int o2, int o3, int o4) {
 		
-		return ((o1 & 0xFF) << 24) | ((o2 & 0xFF) << 16) | ((o3 & 0xFF) << 8) | (o4 & 0xFF);
+		return BinaryUtils.getSignedInteger(o1, o2, o3, o4, true);
+	}
+	
+	/**
+	 * 
+	 * @param o1
+	 * @param o2
+	 * @param o3
+	 * @param o4
+	 * @param bigEndian
+	 * @return
+	 * @since 1.2.1
+	 */
+	public static final int getSignedInteger(int o1, int o2, int o3, int o4, boolean bigEndian) {
+		
+		return bigEndian ? ((o1 & 0xFF) << 24) | ((o2 & 0xFF) << 16) | ((o3 & 0xFF) << 8) | (o4 & 0xFF) : ((o4 & 0xFF) << 24) | ((o3 & 0xFF) << 16) | ((o2 & 0xFF) << 8) | (o1 & 0xFF);
 	}
 	
 	/**
