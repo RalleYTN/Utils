@@ -36,12 +36,32 @@ import java.util.List;
 /**
  * Provides helpful methods regarding the Reflection API.
  * @author Ralph Niemitz/RalleYTN(ralph.niemitz@gmx.de)
- * @version 1.1.2
+ * @version 27.06.2017
  * @since 1.1.2
  */
 public final class ReflectionUtils {
 
 	private ReflectionUtils() {}
+	
+	/**
+	 * 
+	 * @return
+	 * @since 27.06.2017
+	 */
+	public static final String getCallerClassName() {
+		
+		StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+		
+		for(int index = 1; index < stackTrace.length; index++) {
+			
+			if(!stackTrace[index].getClassName().equals(ReflectionUtils.class.getName()) && stackTrace[index].getClassName().indexOf(Thread.class.getName()) != 0) {
+                
+				return stackTrace[index].getClassName();
+            }
+		}
+		
+		return null;
+	}
 	
 	/**
 	 * @param packageName name of the package
