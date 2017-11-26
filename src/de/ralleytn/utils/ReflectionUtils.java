@@ -21,32 +21,81 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 package de.ralleytn.utils;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.jar.JarEntry;
+import java.util.jar.JarInputStream;
 
 /**
  * Provides helpful methods regarding the Reflection API.
  * @author Ralph Niemitz/RalleYTN(ralph.niemitz@gmx.de)
- * @version 27.06.2017
- * @since 1.1.2
  */
 public final class ReflectionUtils {
 
 	private ReflectionUtils() {}
 	
+	public static final List<Class<?>> getAllClassesThatExtend(Class<?> superClass) throws IOException, ClassNotFoundException {
+		
+		// https://stackoverflow.com/questions/205573/at-runtime-find-all-classes-in-a-java-application-that-extend-a-base-class
+		List<Class<?>> classes = new ArrayList<>();
+		
+		for(String classpathEntry : System.getProperty("java.class.path").split(System.getProperty("path.separator"))) {
+			
+			if(classpathEntry.endsWith(".jar")) {
+				
+		        File jar = new File(classpathEntry);
+		        
+		        try(JarInputStream is = new JarInputStream(new FileInputStream(jar))) {
+		        	
+			        JarEntry entry = null;
+			        
+			        while((entry = is.getNextJarEntry()) != null) {
+			        	
+			            if(entry.getName().endsWith(".class")) {
+			                
+			            	Class<?> clazz = Class.forName(entry.getName());
+			            	
+			            	if(ReflectionUtils.hasSuperClass(clazz, superClass)) {
+			            		
+			            		classes.add(clazz);
+			            	}
+			            }
+			        }
+		        }
+		    }
+		}
+		
+		return classes;
+	}
+	
+	public static final boolean hasSuperClass(Class<?> extendingClass, Class<?> superClass) {
+		
+		while(extendingClass != null) {
+			
+			if(extendingClass.equals(superClass)) {
+				
+				return true;
+			}
+			
+			extendingClass = extendingClass.getSuperclass();
+		}
+		
+		return false;
+	}
+	
 	/**
 	 * 
 	 * @return
-	 * @since 27.06.2017
 	 */
 	public static final String getCallerClassName() {
 		
@@ -68,7 +117,6 @@ public final class ReflectionUtils {
 	 * @return a list with all {@linkplain Class} instances in the given package
 	 * @throws IOException if an I/O error occurs
 	 * @throws ClassNotFoundException if a class cannot be located (should never happen)
-	 * @since 1.1.2
 	 */
 	public static final List<Class<?>> getPackage(String packageName) throws IOException, ClassNotFoundException {
 		

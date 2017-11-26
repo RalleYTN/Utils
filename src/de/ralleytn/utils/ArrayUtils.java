@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 package de.ralleytn.utils;
 
 import java.lang.reflect.Array;
@@ -31,8 +30,6 @@ import java.util.List;
 /**
  * Provides useful methods for working with arrays.
  * @author Ralph Niemitz/RalleYTN(ralph.niemitz@gmx.de)
- * @version 1.2.0
- * @since 1.0.0
  */
 public final class ArrayUtils {
 
@@ -42,7 +39,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @param value
-	 * @since 1.2.0
 	 */
 	public static final <T>void fill(T[] array, T value) {
 		
@@ -59,7 +55,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @param value
-	 * @since 1.2.0
 	 */
 	public static final void fill(boolean[] array, boolean value) {
 		
@@ -76,7 +71,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @param value
-	 * @since 1.2.0
 	 */
 	public static final void fill(byte[] array, byte value) {
 		
@@ -93,7 +87,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @param value
-	 * @since 1.2.0
 	 */
 	public static final void fill(short[] array, short value) {
 		
@@ -107,7 +100,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @param value
-	 * @since 1.2.0
 	 */
 	public static final void fill(char[] array, char value) {
 		
@@ -124,7 +116,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @param value
-	 * @since 1.2.0
 	 */
 	public static final void fill(int[] array, int value) {
 		
@@ -141,7 +132,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @param value
-	 * @since 1.2.0
 	 */
 	public static final void fill(long[] array, long value) {
 		
@@ -158,7 +148,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @param value
-	 * @since 1.2.0
 	 */
 	public static final void fill(float[] array, float value) {
 		
@@ -175,7 +164,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @param value
-	 * @since 1.2.0
 	 */
 	public static final void fill(double[] array, double value) {
 		
@@ -193,7 +181,6 @@ public final class ArrayUtils {
 	 * @param first
 	 * @param second
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final <T>boolean equals(T[] first, T[] second) {
 		
@@ -226,7 +213,6 @@ public final class ArrayUtils {
 	 * @param first
 	 * @param second
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean equals(boolean[] first, boolean[] second) {
 		
@@ -259,7 +245,6 @@ public final class ArrayUtils {
 	 * @param first
 	 * @param second
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean equals(byte[] first, byte[] second) {
 		
@@ -292,7 +277,6 @@ public final class ArrayUtils {
 	 * @param first
 	 * @param second
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean equals(short[] first, short[] second) {
 		
@@ -325,7 +309,6 @@ public final class ArrayUtils {
 	 * @param first
 	 * @param second
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean equals(char[] first, char[] second) {
 		
@@ -358,7 +341,6 @@ public final class ArrayUtils {
 	 * @param first
 	 * @param second
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean equals(int[] first, int[] second) {
 		
@@ -391,7 +373,6 @@ public final class ArrayUtils {
 	 * @param first
 	 * @param second
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean equals(long[] first, long[] second) {
 		
@@ -424,7 +405,6 @@ public final class ArrayUtils {
 	 * @param first
 	 * @param second
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean equals(float[] first, float[] second) {
 
@@ -457,7 +437,6 @@ public final class ArrayUtils {
 	 * @param first
 	 * @param second
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean equals(double[] first, double[] second) {
 		
@@ -491,7 +470,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param indecies
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final <T>T[] remove(Class<T> type, T[] array, int... indecies) {
 
@@ -518,7 +496,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param indecies
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean[] remove(boolean[] array, int... indecies) {
 		
@@ -543,7 +520,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param indecies
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final byte[] remove(byte[] array, int... indecies) {
 		
@@ -568,7 +544,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param indecies
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final short[] remove(short[] array, int... indecies) {
 		
@@ -593,7 +568,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param indecies
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final char[] remove(char[] array, int... indecies) {
 		
@@ -618,7 +592,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param indecies
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int[] remove(int[] array, int... indecies) {
 		
@@ -643,7 +616,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param indecies
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final long[] remove(long[] array, int... indecies) {
 		
@@ -668,7 +640,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param indecies
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final float[] remove(float[] array, int... indecies) {
 		
@@ -693,7 +664,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param indecies
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final double[] remove(double[] array, int... indecies) {
 		
@@ -719,7 +689,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param index
 	 * @return
-	 * @since 1.0.0
 	 */
 	@SuppressWarnings("unchecked")
 	public static final <T>T[] remove(Class<T> type, T[] array, int index) {
@@ -745,7 +714,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param index
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean[] remove(boolean[] array, int index) {
 		
@@ -770,7 +738,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param index
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final byte[] remove(byte[] array, int index) {
 		
@@ -795,7 +762,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param index
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final short[] remove(short[] array, int index) {
 		
@@ -820,7 +786,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param index
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final char[] remove(char[] array, int index) {
 		
@@ -845,7 +810,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param index
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int[] remove(int[] array, int index) {
 		
@@ -870,7 +834,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param index
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final long[] remove(long[] array, int index) {
 		
@@ -895,7 +858,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param index
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final float[] remove(float[] array, int index) {
 		
@@ -920,7 +882,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param index
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final double[] remove(double[] array, int index) {
 		
@@ -945,7 +906,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final <T>int lastIndexOf(T[] array, T value) {
 		
@@ -965,7 +925,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int lastIndexOf(boolean[] array, boolean value) {
 		
@@ -985,7 +944,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int lastIndexOf(byte[] array, byte value) {
 		
@@ -1005,7 +963,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int lastIndexOf(short[] array, short value) {
 		
@@ -1025,7 +982,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int lastIndexOf(char[] array, char value) {
 		
@@ -1045,7 +1001,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int lastIndexOf(int[] array, int value) {
 		
@@ -1065,7 +1020,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int lastIndexOf(long[] array, long value) {
 		
@@ -1085,7 +1039,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int lastIndexOf(float[] array, float value) {
 		
@@ -1105,7 +1058,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int lastIndexOf(double[] array, double value) {
 		
@@ -1125,7 +1077,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final <T>int indexOf(T[] array, T value) {
 		
@@ -1137,7 +1088,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int indexOf(boolean[] array, boolean value) {
 		
@@ -1149,7 +1099,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int indexOf(byte[] array, byte value) {
 		
@@ -1161,7 +1110,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int indexOf(short[] array, short value) {
 		
@@ -1173,7 +1121,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int indexOf(char[] array, char value) {
 		
@@ -1185,7 +1132,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int indexOf(int[] array, int value) {
 		
@@ -1197,7 +1143,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int indexOf(long[] array, long value) {
 		
@@ -1209,7 +1154,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int indexOf(float[] array, float value) {
 		
@@ -1221,7 +1165,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int indexOf(double[] array, double value) {
 		
@@ -1234,7 +1177,6 @@ public final class ArrayUtils {
 	 * @param value
 	 * @param offset
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final <T>int indexOf(T[] array, T value, int offset) {
 		
@@ -1255,7 +1197,6 @@ public final class ArrayUtils {
 	 * @param value
 	 * @param offset
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int indexOf(boolean[] array, boolean value, int offset) {
 		
@@ -1276,7 +1217,6 @@ public final class ArrayUtils {
 	 * @param value
 	 * @param offset
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int indexOf(byte[] array, byte value, int offset) {
 		
@@ -1297,7 +1237,6 @@ public final class ArrayUtils {
 	 * @param value
 	 * @param offset
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int indexOf(short[] array, short value, int offset) {
 		
@@ -1318,7 +1257,6 @@ public final class ArrayUtils {
 	 * @param value
 	 * @param offset
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int indexOf(char[] array, char value, int offset) {
 		
@@ -1339,7 +1277,6 @@ public final class ArrayUtils {
 	 * @param value
 	 * @param offset
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int indexOf(int[] array, int value, int offset) {
 		
@@ -1360,7 +1297,6 @@ public final class ArrayUtils {
 	 * @param value
 	 * @param offset
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int indexOf(long[] array, long value, int offset) {
 		
@@ -1381,7 +1317,6 @@ public final class ArrayUtils {
 	 * @param value
 	 * @param offset
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int indexOf(float[] array, float value, int offset) {
 		
@@ -1402,7 +1337,6 @@ public final class ArrayUtils {
 	 * @param value
 	 * @param offset
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int indexOf(double[] array, double value, int offset) {
 		
@@ -1422,7 +1356,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final <T>boolean contains(T[] array, T value) {
 		
@@ -1442,7 +1375,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean contains(boolean[] array, boolean value) {
 		
@@ -1462,7 +1394,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean contains(byte[] array, byte value) {
 		
@@ -1482,7 +1413,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean contains(short[] array, short value) {
 		
@@ -1502,7 +1432,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean contains(char[] array, char value) {
 		
@@ -1522,7 +1451,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean contains(int[] array, int value) {
 		
@@ -1542,7 +1470,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean contains(long[] array, long value) {
 		
@@ -1562,7 +1489,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean contains(float[] array, float value) {
 		
@@ -1582,7 +1508,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean contains(double[] array, double value) {
 		
@@ -1603,7 +1528,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final <T>T[] add(Class<T> type, T[] array, T value) {
 		
@@ -1617,7 +1541,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean[] add(boolean[] array, boolean value) {
 		
@@ -1631,7 +1554,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final byte[] add(byte[] array, byte value) {
 		
@@ -1645,7 +1567,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final short[] add(short[] array, short value) {
 		
@@ -1659,7 +1580,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final char[] add(char[] array, char value) {
 		
@@ -1673,7 +1593,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int[] add(int[] array, int value) {
 		
@@ -1687,7 +1606,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final float[] add(float[] array, float value) {
 		
@@ -1701,7 +1619,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param value
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final double[] add(double[] array, double value) {
 		
@@ -1714,7 +1631,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean[] copy(boolean[] array) {
 		
@@ -1732,7 +1648,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final byte[] copy(byte[] array) {
 		
@@ -1750,7 +1665,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final short[] copy(short[] array) {
 		
@@ -1768,7 +1682,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final char[] copy(char[] array) {
 		
@@ -1786,7 +1699,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int[] copy(int[] array) {
 		
@@ -1804,7 +1716,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final long[] copy(long[] array) {
 		
@@ -1822,7 +1733,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final float[] copy(float[] array) {
 		
@@ -1840,7 +1750,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final double[] copy(double[] array) {
 		
@@ -1859,7 +1768,6 @@ public final class ArrayUtils {
 	 * @param type
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	@SuppressWarnings("unchecked")
 	public static final <T>T[] copy(Class<T> type, T[] array) {
@@ -1879,7 +1787,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param object
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean isArray(Object object) {
 
@@ -1891,7 +1798,6 @@ public final class ArrayUtils {
 	 * @param type
 	 * @param arrays
 	 * @return
-	 * @since 1.2.0
 	 */
 	@SuppressWarnings("unchecked")
 	public static final <T>T[] merge(Class<T> type, T[]... arrays) {
@@ -1913,7 +1819,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param arrays
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final boolean[] merge(boolean[]... arrays) {
 		
@@ -1934,7 +1839,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param arrays
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final char[] merge(char[]... arrays) {
 		
@@ -1955,7 +1859,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param arrays
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final byte[] merge(byte[]... arrays) {
 		
@@ -1976,7 +1879,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param arrays
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final short[] merge(short[]... arrays) {
 		
@@ -1997,7 +1899,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param arrays
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final int[] merge(int[]... arrays) {
 		
@@ -2018,7 +1919,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param arrays
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final long[] merge(long[]... arrays) {
 		
@@ -2039,7 +1939,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param arrays
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final float[] merge(float[]... arrays) {
 		
@@ -2060,7 +1959,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param arrays
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final double[] merge(double[]... arrays) {
 		
@@ -2082,7 +1980,6 @@ public final class ArrayUtils {
 	 * @param type
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	@SuppressWarnings("unchecked")
 	public static final <T>T[] flatten(Class<T> type, T[][] array) {
@@ -2105,7 +2002,6 @@ public final class ArrayUtils {
 	 * @param type
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	@SuppressWarnings("unchecked")
 	public static final <T>T[] flatten(Class<T> type, T[][][] array) {
@@ -2131,7 +2027,6 @@ public final class ArrayUtils {
 	 * @param type
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	@SuppressWarnings("unchecked")
 	public static final <T>T[] flatten(Class<T> type, T[][][][] array) {
@@ -2159,7 +2054,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final boolean[] flatten(boolean[][] array) {
 		
@@ -2180,7 +2074,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final boolean[] flatten(boolean[][][] array) {
 		
@@ -2204,7 +2097,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final boolean[] flatten(boolean[][][][] array) {
 		
@@ -2231,7 +2123,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final char[] flatten(char[][] array) {
 		
@@ -2252,7 +2143,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final char[] flatten(char[][][] array) {
 		
@@ -2276,7 +2166,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final char[] flatten(char[][][][] array) {
 		
@@ -2303,7 +2192,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final byte[] flatten(byte[][] array) {
 		
@@ -2324,7 +2212,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final byte[] flatten(byte[][][] array) {
 		
@@ -2348,7 +2235,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final byte[] flatten(byte[][][][] array) {
 		
@@ -2375,7 +2261,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final short[] flatten(short[][] array) {
 		
@@ -2396,7 +2281,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final short[] flatten(short[][][] array) {
 		
@@ -2420,7 +2304,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final short[] flatten(short[][][][] array) {
 		
@@ -2447,7 +2330,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final int[] flatten(int[][] array) {
 		
@@ -2468,7 +2350,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final int[] flatten(int[][][] array) {
 		
@@ -2492,7 +2373,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final int[] flatten(int[][][][] array) {
 		
@@ -2519,7 +2399,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final long[] flatten(long[][] array) {
 		
@@ -2540,7 +2419,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final long[] flatten(long[][][] array) {
 		
@@ -2564,7 +2442,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final long[] flatten(long[][][][] array) {
 		
@@ -2591,7 +2468,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final float[] flatten(float[][] array) {
 		
@@ -2612,7 +2488,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final float[] flatten(float[][][] array) {
 		
@@ -2636,7 +2511,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final float[] flatten(float[][][][] array) {
 		
@@ -2663,7 +2537,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final double[] flatten(double[][] array) {
 		
@@ -2684,7 +2557,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final double[] flatten(double[][][] array) {
 		
@@ -2708,7 +2580,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final double[] flatten(double[][][][] array) {
 		
@@ -2735,7 +2606,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param arrays
 	 * @return
-	 * @since 1.2.0
 	 */
 	@SuppressWarnings("unchecked")
 	public static final <T>T[][] combine(T[]... arrays) {
@@ -2747,7 +2617,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param arrays
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final boolean[][] combine(boolean[]... arrays) {
 		
@@ -2758,7 +2627,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param arrays
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final char[][] combine(char[]... arrays) {
 		
@@ -2769,7 +2637,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param arrays
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final byte[][] combine(byte[]... arrays) {
 		
@@ -2780,7 +2647,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param arrays
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final short[][] combine(short[]... arrays) {
 		
@@ -2791,7 +2657,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param arrays
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final int[][] combine(int[]... arrays) {
 		
@@ -2802,7 +2667,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param arrays
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final long[][] combine(long[]... arrays) {
 		
@@ -2813,7 +2677,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param arrays
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final float[][] combine(float[]... arrays) {
 		
@@ -2824,7 +2687,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param arrays
 	 * @return
-	 * @since 1.2.0
 	 */
 	public static final double[][] conmbine(double[]... arrays) {
 		
@@ -2836,7 +2698,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param numberOfElements
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final byte[] append(byte[] array, int numberOfElements) {
 		
@@ -2855,7 +2716,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param numberOfElements
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean[] append(boolean[] array, int numberOfElements) {
 		
@@ -2874,7 +2734,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param numberOfElements
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final short[] append(short[] array, int numberOfElements) {
 		
@@ -2893,7 +2752,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param numberOfElements
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final char[] append(char[] array, int numberOfElements) {
 		
@@ -2912,7 +2770,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param numberOfElements
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final double[] append(double[] array, int numberOfElements) {
 		
@@ -2931,7 +2788,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param numberOfElements
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final float[] append(float[] array, int numberOfElements) {
 		
@@ -2950,7 +2806,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param numberOfElements
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final long[] append(long[] array, int numberOfElements) {
 		
@@ -2969,7 +2824,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param numberOfElements
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int[] append(int[] array, int numberOfElements) {
 		
@@ -2989,7 +2843,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param numberOfElements
 	 * @return
-	 * @since 1.0.0
 	 */
 	@SuppressWarnings("unchecked")
 	public static final <T>T[] append(Class<T> type, T[] array, int numberOfElements) {
@@ -3012,7 +2865,6 @@ public final class ArrayUtils {
 	 * @param start
 	 * @param end
 	 * @return
-	 * @since 1.0.0
 	 */
 	@SuppressWarnings("unchecked")
 	public static final <T>T[] getSubArray(Class<T> type, T[] array, int start, int end) {
@@ -3039,7 +2891,6 @@ public final class ArrayUtils {
 	 * @param start
 	 * @param end
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean[] getSubArray(boolean[] array, int start, int end) {
 		
@@ -3064,7 +2915,6 @@ public final class ArrayUtils {
 	 * @param start
 	 * @param end
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final byte[] getSubArray(byte[] array, int start, int end) {
 		
@@ -3089,7 +2939,6 @@ public final class ArrayUtils {
 	 * @param start
 	 * @param end
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final short[] getSubArray(short[] array, int start, int end) {
 		
@@ -3114,7 +2963,6 @@ public final class ArrayUtils {
 	 * @param start
 	 * @param end
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final char[] getSubArray(char[] array, int start, int end) {
 		
@@ -3139,7 +2987,6 @@ public final class ArrayUtils {
 	 * @param start
 	 * @param end
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int[] getSubArray(int[] array, int start, int end) {
 		
@@ -3164,7 +3011,6 @@ public final class ArrayUtils {
 	 * @param start
 	 * @param end
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final long[] getSubArray(long[] array, int start, int end) {
 		
@@ -3189,7 +3035,6 @@ public final class ArrayUtils {
 	 * @param start
 	 * @param end
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final float[] getSubArray(float[] array, int start, int end) {
 		
@@ -3214,7 +3059,6 @@ public final class ArrayUtils {
 	 * @param start
 	 * @param end
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final double[] getSubArray(double[] array, int start, int end) {
 		
@@ -3240,7 +3084,6 @@ public final class ArrayUtils {
 	 * @param start
 	 * @param end
 	 * @return
-	 * @since 1.0.0
 	 */
 	@SuppressWarnings("unchecked")
 	public static final <T>T[] delete(Class<T> type, T[] array, int start, int end) {
@@ -3267,7 +3110,6 @@ public final class ArrayUtils {
 	 * @param start
 	 * @param end
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean[] delete(boolean[] array, int start, int end) {
 		
@@ -3292,7 +3134,6 @@ public final class ArrayUtils {
 	 * @param start
 	 * @param end
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final byte[] delete(byte[] array, int start, int end) {
 		
@@ -3317,7 +3158,6 @@ public final class ArrayUtils {
 	 * @param start
 	 * @param end
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final short[] delete(short[] array, int start, int end) {
 		
@@ -3342,7 +3182,6 @@ public final class ArrayUtils {
 	 * @param start
 	 * @param end
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final char[] delete(char[] array, int start, int end) {
 		
@@ -3367,7 +3206,6 @@ public final class ArrayUtils {
 	 * @param start
 	 * @param end
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int[] delete(int[] array, int start, int end) {
 		
@@ -3392,7 +3230,6 @@ public final class ArrayUtils {
 	 * @param start
 	 * @param end
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final long[] delete(long[] array, int start, int end) {
 		
@@ -3417,7 +3254,6 @@ public final class ArrayUtils {
 	 * @param start
 	 * @param end
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final float[] delete(float[] array, int start, int end) {
 		
@@ -3442,7 +3278,6 @@ public final class ArrayUtils {
 	 * @param start
 	 * @param end
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final double[] delete(double[] array, int start, int end) {
 		
@@ -3468,7 +3303,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param offset
 	 * @return
-	 * @since 1.0.0
 	 */
 	@SuppressWarnings("unchecked")
 	public static final <T>T[] insert(Class<T> type, T[] insertArray, T[] array, int offset) {
@@ -3502,7 +3336,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param offset
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean[] insert(boolean[] insertArray, boolean[] array, int offset) {
 		
@@ -3533,7 +3366,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param offset
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final byte[] insert(byte[] insertArray, byte[] array, int offset) {
 		
@@ -3564,7 +3396,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param offset
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final short[] insert(short[] insertArray, short[] array, int offset) {
 		
@@ -3595,7 +3426,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param offset
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final char[] insert(char[] insertArray, char[] array, int offset) {
 		
@@ -3626,7 +3456,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param offset
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int[] insert(int[] insertArray, int[] array, int offset) {
 		
@@ -3657,7 +3486,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param offset
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final long[] insert(long[] insertArray, long[] array, int offset) {
 		
@@ -3688,7 +3516,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param offset
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final float[] insert(float[] insertArray, float[] array, int offset) {
 		
@@ -3719,7 +3546,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param offset
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final double[] insert(double[] insertArray, double[] array, int offset) {
 		
@@ -3751,7 +3577,6 @@ public final class ArrayUtils {
 	 * @param left
 	 * @param right
 	 * @return
-	 * @since 1.0.0
 	 */
 	@SuppressWarnings("unchecked")
 	public static final <T>T[] chop(Class<T> type, T[] array, int left, int right) {
@@ -3773,7 +3598,6 @@ public final class ArrayUtils {
 	 * @param left
 	 * @param right
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean[] chop(boolean[] array, int left, int right) {
 		
@@ -3793,7 +3617,6 @@ public final class ArrayUtils {
 	 * @param left
 	 * @param right
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final byte[] chop(byte[] array, int left, int right) {
 		
@@ -3813,7 +3636,6 @@ public final class ArrayUtils {
 	 * @param left
 	 * @param right
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final short[] chop(short[] array, int left, int right) {
 		
@@ -3833,7 +3655,6 @@ public final class ArrayUtils {
 	 * @param left
 	 * @param right
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final char[] chop(char[] array, int left, int right) {
 		
@@ -3853,7 +3674,6 @@ public final class ArrayUtils {
 	 * @param left
 	 * @param right
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int[] chop(int[] array, int left, int right) {
 		
@@ -3873,7 +3693,6 @@ public final class ArrayUtils {
 	 * @param left
 	 * @param right
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final long[] chop(long[] array, int left, int right) {
 		
@@ -3893,7 +3712,6 @@ public final class ArrayUtils {
 	 * @param left
 	 * @param right
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final float[] chop(float[] array, int left, int right) {
 		
@@ -3913,7 +3731,6 @@ public final class ArrayUtils {
 	 * @param left
 	 * @param right
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final double[] chop(double[] array, int left, int right) {
 		
@@ -3933,7 +3750,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param left
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final <T>T[] chopLeft(Class<T> type, T[] array, int left) {
 		
@@ -3945,7 +3761,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param left
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean[] chopLeft(boolean[] array, int left) {
 		
@@ -3957,7 +3772,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param left
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final byte[] chopLeft(byte[] array, int left) {
 		
@@ -3969,7 +3783,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param left
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final short[] chopLeft(short[] array, int left) {
 		
@@ -3981,7 +3794,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param left
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final char[] chopLeft(char[] array, int left) {
 		
@@ -3993,7 +3805,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param left
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int[] chopLeft(int[] array, int left) {
 		
@@ -4005,7 +3816,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param left
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final long[] chopLeft(long[] array, int left) {
 		
@@ -4017,7 +3827,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param left
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final float[] chopLeft(float[] array, int left) {
 		
@@ -4029,7 +3838,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param left
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final double[] chopLeft(double[] array, int left) {
 		
@@ -4041,7 +3849,6 @@ public final class ArrayUtils {
 	 * @param type
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final <T>T[] chopLeft(Class<T> type, T[] array) {
 		
@@ -4052,7 +3859,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean[] chopLeft(boolean[] array) {
 		
@@ -4063,7 +3869,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final byte[] chopLeft(byte[] array) {
 		
@@ -4074,7 +3879,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final short[] chopLeft(short[] array) {
 		
@@ -4085,7 +3889,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final char[] chopLeft(char[] array) {
 		
@@ -4096,7 +3899,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int[] chopLeft(int[] array) {
 		
@@ -4107,7 +3909,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final long[] chopLeft(long[] array) {
 		
@@ -4118,7 +3919,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final float[] chopLeft(float[] array) {
 		
@@ -4129,7 +3929,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final double[] chopLeft(double[] array) {
 		
@@ -4142,7 +3941,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param right
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final <T>T[] chopRight(Class<T> type, T[] array, int right) {
 		
@@ -4154,7 +3952,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param right
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean[] chopRight(boolean[] array, int right) {
 		
@@ -4166,7 +3963,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param right
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final byte[] chopRight(byte[] array, int right) {
 		
@@ -4178,7 +3974,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param right
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final char[] chopRight(char[] array, int right) {
 		
@@ -4190,7 +3985,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param right
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final short[] chopRight(short[] array, int right) {
 		
@@ -4202,7 +3996,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param right
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int[] chopRight(int[] array, int right) {
 		
@@ -4214,7 +4007,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param right
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final long[] chopRight(long[] array, int right) {
 		
@@ -4226,7 +4018,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param right
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final float[] chopRight(float[] array, int right) {
 		
@@ -4238,7 +4029,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param right
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final double[] chopRight(double[] array, int right) {
 		
@@ -4250,7 +4040,6 @@ public final class ArrayUtils {
 	 * @param type
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final <T>T[] chopRight(Class<T> type, T[] array) {
 		
@@ -4261,7 +4050,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean[] chopRight(boolean[] array) {
 		
@@ -4272,7 +4060,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final byte[] chopRight(byte[] array) {
 		
@@ -4283,7 +4070,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final short[] chopRight(short[] array) {
 		
@@ -4294,7 +4080,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final char[] chopRight(char[] array) {
 		
@@ -4305,7 +4090,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int[] chopRight(int[] array) {
 		
@@ -4316,7 +4100,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final long[] chopRight(long[] array) {
 		
@@ -4327,7 +4110,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final float[] chopRight(float[] array) {
 		
@@ -4338,7 +4120,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final double[] chopRight(double[] array) {
 		
@@ -4349,7 +4130,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final <T>List<T> toList(T[] array) {
 		
@@ -4367,7 +4147,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final List<Boolean> toList(boolean[] array) {
 		
@@ -4385,7 +4164,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final List<Byte> toList(byte[] array) {
 		
@@ -4403,7 +4181,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final List<Short> toList(short[] array) {
 		
@@ -4421,7 +4198,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final List<Character> toList(char[] array) {
 		
@@ -4439,7 +4215,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final List<Integer> toList(int[] array) {
 		
@@ -4457,7 +4232,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final List<Long> toList(long[] array) {
 		
@@ -4475,7 +4249,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final List<Float> toList(float[] array) {
 		
@@ -4493,7 +4266,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final List<Double> toList(double[] array) {
 		
@@ -4511,7 +4283,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final Boolean[] toWrapperArray(boolean[] array) {
 		
@@ -4529,7 +4300,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final Double[] toWrapperArray(double[] array) {
 		
@@ -4547,7 +4317,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final Float[] toWrapperArray(float[] array) {
 		
@@ -4565,7 +4334,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final Long[] toWrapperArray(long[] array) {
 		
@@ -4583,7 +4351,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final Short[] toWrapperArray(short[] array) {
 		
@@ -4601,7 +4368,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final Byte[] toWrapperArray(byte[] array) {
 		
@@ -4619,7 +4385,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final Integer[] toWrapperArray(int[] array) {
 		
@@ -4637,7 +4402,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final Character[] toWrapperArray(char[] array) {
 		
@@ -4655,7 +4419,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean[] toPrimitiveArray(Boolean[] array) {
 
@@ -4673,7 +4436,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final double[] toPrimitiveArray(Double[] array) {
 
@@ -4691,7 +4453,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final float[] toPrimitiveArray(Float[] array) {
 
@@ -4709,7 +4470,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final long[] toPrimitiveArray(Long[] array) {
 
@@ -4727,7 +4487,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final short[] toPrimitiveArray(Short[] array) {
 
@@ -4745,7 +4504,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final byte[] toPrimitiveArray(Byte[] array) {
 
@@ -4763,7 +4521,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int[] toPrimitiveArray(Integer[] array) {
 
@@ -4781,7 +4538,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final char[] toPrimitiveArray(Character[] array) {
 		
@@ -4799,7 +4555,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean[] reverse(boolean[] array) {
 		
@@ -4818,7 +4573,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final byte[] reverse(byte[] array) {
 		
@@ -4837,7 +4591,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final short[] reverse(short[] array) {
 		
@@ -4856,7 +4609,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final char[] reverse(char[] array) {
 		
@@ -4875,7 +4627,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int[] reverse(int[] array) {
 		
@@ -4894,7 +4645,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final long[] reverse(long[] array) {
 		
@@ -4913,7 +4663,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final float[] reverse(float[] array) {
 		
@@ -4932,7 +4681,6 @@ public final class ArrayUtils {
 	 * 
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final double[] reverse(double[] array) {
 		
@@ -4952,7 +4700,6 @@ public final class ArrayUtils {
 	 * @param type
 	 * @param array
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final <T>T[] reverse(Class<T> type, T[] array) {
 		
@@ -4974,7 +4721,6 @@ public final class ArrayUtils {
 	/**
 	 * 
 	 * @param array
-	 * @since 1.0.0
 	 */
 	public static final <T extends Comparable<T>>void sort(T[] array) {
 		
@@ -5003,7 +4749,6 @@ public final class ArrayUtils {
 	/**
 	 * 
 	 * @param array
-	 * @since 1.0.0
 	 */
 	public static final void sort(boolean[] array) {
 		
@@ -5032,7 +4777,6 @@ public final class ArrayUtils {
 	/**
 	 * 
 	 * @param array
-	 * @since 1.0.0
 	 */
 	public static final void sort(byte[] array) {
 		
@@ -5061,7 +4805,6 @@ public final class ArrayUtils {
 	/**
 	 * 
 	 * @param array
-	 * @since 1.0.0
 	 */
 	public static final void sort(short[] array) {
 		
@@ -5090,7 +4833,6 @@ public final class ArrayUtils {
 	/**
 	 * 
 	 * @param array
-	 * @since 1.0.0
 	 */
 	public static final void sort(char[] array) {
 		
@@ -5119,7 +4861,6 @@ public final class ArrayUtils {
 	/**
 	 * 
 	 * @param array
-	 * @since 1.0.0
 	 */
 	public static final void sort(int[] array) {
 		
@@ -5148,7 +4889,6 @@ public final class ArrayUtils {
 	/**
 	 * 
 	 * @param array
-	 * @since 1.0.0
 	 */
 	public static final void sort(long[] array) {
 		
@@ -5177,7 +4917,6 @@ public final class ArrayUtils {
 	/**
 	 * 
 	 * @param array
-	 * @since 1.0.0
 	 */
 	public static final void sort(float[] array) {
 		
@@ -5206,7 +4945,6 @@ public final class ArrayUtils {
 	/**
 	 * 
 	 * @param array
-	 * @since 1.0.0
 	 */
 	public static final void sort(double[] array) {
 		
@@ -5237,7 +4975,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param i1
 	 * @param i2
-	 * @since 1.0.0
 	 */
 	public static final <T>void swap(T[] array, int i1, int i2) {
 		
@@ -5251,7 +4988,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param i1
 	 * @param i2
-	 * @since 1.0.0
 	 */
 	public static final void swap(boolean[] array, int i1, int i2) {
 		
@@ -5265,7 +5001,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param i1
 	 * @param i2
-	 * @since 1.0.0
 	 */
 	public static final void swap(byte[] array, int i1, int i2) {
 		
@@ -5279,7 +5014,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param i1
 	 * @param i2
-	 * @since 1.0.0
 	 */
 	public static final void swap(short[] array, int i1, int i2) {
 
@@ -5300,7 +5034,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param i1
 	 * @param i2
-	 * @since 1.0.0
 	 */
 	public static final void swap(int[] array, int i1, int i2) {
 		
@@ -5314,7 +5047,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param i1
 	 * @param i2
-	 * @since 1.0.0
 	 */
 	public static final void swap(long[] array, int i1, int i2) {
 
@@ -5328,7 +5060,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param i1
 	 * @param i2
-	 * @since 1.0.0
 	 */
 	public static final void swap(float[] array, int i1, int i2) {
 
@@ -5342,7 +5073,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param i1
 	 * @param i2
-	 * @since 1.0.0
 	 */
 	public static final void swap(double[] array, int i1, int i2) {
 
@@ -5357,7 +5087,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param maxLength
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final <T>T[] truncate(Class<T> type, T[] array, int maxLength) {
 		
@@ -5377,7 +5106,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param maxLength
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final boolean[] truncate(boolean[] array, int maxLength) {
 		
@@ -5396,7 +5124,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param maxLength
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final byte[] truncate(byte[] array, int maxLength) {
 		
@@ -5415,7 +5142,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param maxLength
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final short[] truncate(short[] array, int maxLength) {
 		
@@ -5434,7 +5160,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param maxLength
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final char[] truncate(char[] array, int maxLength) {
 		
@@ -5453,7 +5178,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param maxLength
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final int[] truncate(int[] array, int maxLength) {
 		
@@ -5472,7 +5196,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param maxLength
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final long[] truncate(long[] array, int maxLength) {
 		
@@ -5491,7 +5214,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param maxLength
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final float[] truncate(float[] array, int maxLength) {
 		
@@ -5510,7 +5232,6 @@ public final class ArrayUtils {
 	 * @param array
 	 * @param maxLength
 	 * @return
-	 * @since 1.0.0
 	 */
 	public static final double[] truncate(double[] array, int maxLength) {
 		

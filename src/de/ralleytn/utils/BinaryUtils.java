@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 package de.ralleytn.utils;
 
 import java.io.ByteArrayOutputStream;
@@ -31,8 +30,6 @@ import java.util.List;
 /**
  * Provides some helpful methods for binary operations.
  * @author Ralph Niemitz/RalleYTN(ralph.niemitz@gmx.de)
- * @version 1.2.1
- * @since 1.1.0
  */
 public final class BinaryUtils {
 
@@ -43,11 +40,22 @@ public final class BinaryUtils {
 	 * @param integer {@code int} from which you want only one octet
 	 * @param position position from the right side
 	 * @return the octet on the given position
-	 * @since 1.1.1
 	 */
-	public static final int getOctet(int integer, int position) {
+	public static final int getOctet(long integer, int position) {
 		
-		return (integer >> (position * 8)) & 0xFF;
+		return (int)((integer >> (position * 8)) & 0xFF);
+	}
+	
+	/**
+	 * Sets the value of a single bit in a bit chain.
+	 * @param original the data that should be modified
+	 * @param position the position of the bit (right to left)
+	 * @param value the new value of the bit at the given position
+	 * @return the modified data
+	 */
+	public static final int setBit(int original, int position, boolean value) {
+		
+		return value ? original | (1 << position) : original & ~(1 << position);
 	}
 	
 	/**
@@ -55,7 +63,6 @@ public final class BinaryUtils {
 	 * @param integer {@code int} from which you want only one bit
 	 * @param position position from the right side
 	 * @return the bit on the given position
-	 * @since 1.1.1
 	 */
 	public static final boolean getBit(int integer, int position) {
 		
@@ -69,7 +76,6 @@ public final class BinaryUtils {
 	 * @param o3 third octet
 	 * @param o4 fourth octet
 	 * @return the resulting unsigned {@code int}
-	 * @since 1.1.0
 	 */
 	public static final long getUnsignedInteger(int o1, int o2, int o3, int o4) {
 		
@@ -84,7 +90,6 @@ public final class BinaryUtils {
 	 * @param o4
 	 * @param bigEndian
 	 * @return
-	 * @since 1.2.1
 	 */
 	public static final long getUnsignedInteger(int o1, int o2, int o3, int o4, boolean bigEndian) {
 		
@@ -98,7 +103,6 @@ public final class BinaryUtils {
 	 * @param o3 third octet
 	 * @param o4 fourth octet
 	 * @return the resulting signed {@code int}
-	 * @since 1.1.0
 	 */
 	public static final int getSignedInteger(int o1, int o2, int o3, int o4) {
 		
@@ -113,7 +117,6 @@ public final class BinaryUtils {
 	 * @param o4
 	 * @param bigEndian
 	 * @return
-	 * @since 1.2.1
 	 */
 	public static final int getSignedInteger(int o1, int o2, int o3, int o4, boolean bigEndian) {
 		
@@ -121,10 +124,90 @@ public final class BinaryUtils {
 	}
 	
 	/**
+	 * Builds a signed small endian 64 bit integer.
+	 * @param o1 first octet
+	 * @param o2 second octet
+	 * @param o3 third octet
+	 * @param o4 fourth octet
+	 * @param o5 fifth octet
+	 * @param o6 sixth octet
+	 * @param o7 seventh octet
+	 * @param o8 eighth octet
+	 * @return the built integer
+	 */
+	public static final long getSignedLong(int o1, int o2, int o3, int o4, int o5, int o6, int o7, int o8) {
+		
+		return BinaryUtils.getSignedLong(o1, o2, o3, o4, o5, o6, o7, o8, false);
+	}
+	
+	/**
+	 * Builds a signed 64 bit integer.
+	 * @param o1 first octet
+	 * @param o2 second octet
+	 * @param o3 third octet
+	 * @param o4 fourth octet
+	 * @param o5 fifth octet
+	 * @param o6 sixth octet
+	 * @param o7 seventh octet
+	 * @param o8 eighth octet
+	 * @param bigEndian {@code true} to use big endian, {@code false} for small endian
+	 * @return the built integer
+	 */
+	public static final long getSignedLong(int o1, int o2, int o3, int o4, int o5, int o6, int o7, int o8, boolean bigEndian) {
+		
+		return bigEndian ? ((o1 & 0xFFL) << 56L) | ((o2 & 0xFFL) << 48L) | ((o3 & 0xFFL) << 40L) | ((o4 & 0xFFL) << 32L) | ((o5 & 0xFFL) << 24L) | ((o6 & 0xFFL) << 16L) | ((o7 & 0xFFL) << 8L) | (o8 | 0xFFL) : ((o8 & 0xFFL) << 56L) | ((o7 & 0xFFL) << 48L) | ((o6 & 0xFFL) << 40L) | ((o5 & 0xFFL) << 32L) | ((o4 & 0xFFL) << 24L) | ((o3 & 0xFFL) << 16L) | ((o2 & 0xFFL) << 8L) | (o1 | 0xFFL);
+	}
+	
+	/**
+	 * Builds a small endian unsigned 16 bit integer.
+	 * @param o1 first octet
+	 * @param o2 second octet
+	 * @return the built integer
+	 */
+	public static final int getUnsignedShort(int o1, int o2) {
+		
+		return BinaryUtils.getUnsignedShort(o1, o2, false);
+	}
+	
+	/**
+	 * Builds an unsigned 16 bit integer.
+	 * @param o1 first octet
+	 * @param o2 second octet
+	 * @param bigEndian {@code true} to use big endian, {@code false} for small endian
+	 * @return the built integer
+	 */
+	public static final int getUnsignedShort(int o1, int o2, boolean bigEndian) {
+		
+		return BinaryUtils.getSignedShort(o1, o2, bigEndian) & 0xFFFF;
+	}
+	
+	/**
+	 * Builds a small endian signed 16 bit integer.
+	 * @param o1 first octet
+	 * @param o2 second octet
+	 * @return the built integer
+	 */
+	public static final short getSignedShort(int o1, int o2) {
+		
+		return BinaryUtils.getSignedShort(o1, o2, false);
+	}
+	
+	/**
+	 * Builds a signed 16 bit integer
+	 * @param o1 first octet
+	 * @param o2 second octet
+	 * @param bigEndian {@code true} to use big endian, {@code false} for small endian
+	 * @return the built integer
+	 */
+	public static final short getSignedShort(int o1, int o2, boolean bigEndian) {
+		
+		return (short)(bigEndian ? ((o1 & 0xFF) << 8) | (o2 & 0xFF) : ((o2 & 0xFF) << 8) | (o1 & 0xFF));
+	}
+	
+	/**
 	 * Converts an {@linkplain Integer} list to a {@code byte} array.
 	 * @param integers list of {@linkplain Integer}s
 	 * @return the resulting {@code byte} array
-	 * @since 1.1.0
 	 */
 	public static final byte[] toByteArray(List<Integer> integers) {
 		
@@ -145,7 +228,6 @@ public final class BinaryUtils {
 	 * Converts an {@code int} array to a {@code byte} array.
 	 * @param integers array of {@code int}s.
 	 * @return the resulting {@code byte} array
-	 * @since 1.1.0
 	 */
 	public static final byte[] toByteArray(int[] integers) {
 		

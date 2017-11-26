@@ -21,9 +21,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 package de.ralleytn.utils;
 
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -39,12 +40,34 @@ import javax.imageio.stream.ImageOutputStream;
 /**
  * Provides some helpful methods regarding images.
  * @author Ralph Niemitz/RalleYTN(ralph.niemitz@gmx.de)
- * @version 1.2.0
- * @since 1.0.0
  */
 public final class ImageUtils {
 
 	private ImageUtils() {}
+	
+	/**
+	 * Converts an object of {@linkplain Image} to an object of {@linkplain BufferedImage}.
+	 * @param image the image you want to convert
+	 * @return the converted image
+	 * @since 1.0.0
+	 */
+	public static final BufferedImage convert(Image image) {
+		
+		if(image instanceof BufferedImage) {
+			
+			// no need to convert the image if it already is a buffered image
+			return (BufferedImage)image;
+			
+		} else {
+			
+			BufferedImage converted = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+			Graphics graphics = converted.createGraphics();
+			graphics.drawImage(image, 0, 0, null);
+			graphics.dispose();
+			
+			return converted;
+		}
+	}
 	
 	/**
 	 * 
@@ -52,7 +75,6 @@ public final class ImageUtils {
 	 * @param output
 	 * @param quality
 	 * @throws IOException
-	 * @since 1.2.0
 	 */
 	public static final void writeJPEG(BufferedImage image, OutputStream output, float quality) throws IOException {
 		
@@ -70,12 +92,42 @@ public final class ImageUtils {
 	}
 	
 	/**
+	 * Converts an image to another type.
+	 * @param image the image you want to convert
+	 * @param type the target type
+	 * @return the converted image
+	 */
+	public static final BufferedImage convert(BufferedImage image, int type) {
+		
+		BufferedImage converted = new BufferedImage(image.getWidth(), image.getHeight(), type);
+		Graphics graphics = converted.createGraphics();
+		graphics.drawImage(image, 0, 0, null);
+		graphics.dispose();
+		
+		return converted;
+	}
+	
+	/**
+	 * @param image the image of which you want the binary data
+	 * @param format the image format
+	 * @return the binary image data in PNG format
+	 * @throws IOException if something went wrong while writing the image on the buffer
+	 */
+	public static final byte[] toByteArray(BufferedImage image, String format) throws IOException {
+		
+		try(ByteArrayOutputStream buffer = new ByteArrayOutputStream()) {
+			
+			ImageIO.write(image, format, buffer);
+			return buffer.toByteArray();
+		}
+	}
+	
+	/**
 	 * 
 	 * @param image
 	 * @param format
 	 * @return
 	 * @throws IOException
-	 * @since 1.0.0
 	 */
 	public static final byte[] getBase64(BufferedImage image, String format) throws IOException {
 		

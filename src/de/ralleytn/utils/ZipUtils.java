@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 package de.ralleytn.utils;
 
 import java.io.File;
@@ -42,8 +41,6 @@ import java.util.zip.ZipOutputStream;
 /**
  * Provides some helpful methods regarding ZIP files.
  * @author Ralph Niemitz/RalleYTN(ralph.niemitz@gmx.de)
- * @version 1.1.1
- * @since 1.0.0
  */
 public final class ZipUtils {
 
@@ -54,7 +51,6 @@ public final class ZipUtils {
 	 * @param zip the ZIP file you want to go through
 	 * @param callback the function to be called on every entry
 	 * @throws IOException if an I/O error occurs
-	 * @since 1.0.0
 	 */
 	public static final void forEach(File zip, Consumer<ZipEntry> callback) throws IOException {
 
@@ -75,7 +71,6 @@ public final class ZipUtils {
 	 * @param entry the entry you want to open
 	 * @return the resulting {@linkplain InputStream}
 	 * @throws IOException if an I/O error occurs
-	 * @since 1.0.0
 	 */
 	public static final InputStream getInputStream(File zip, String entry) throws IOException {
 
@@ -90,7 +85,6 @@ public final class ZipUtils {
 	 * @param zip the {@linkplain File} object representing 
 	 * @param files A {@linkplain Map} object representing the structure of the resulting ZIP file
 	 * @throws IOException if an I/O error occurs
-	 * @since 1.0.0
 	 */
 	public static final void pack(File zip, Map<String, File> files) throws IOException {
 
@@ -127,7 +121,6 @@ public final class ZipUtils {
 	 * @param zip the ZIP file you want to unpack
 	 * @param targetDirectory the directory in which the contents of the ZIP file will be put in
 	 * @throws IOException if an I/O error occurs
-	 * @since 1.0.0
 	 */
 	public static final void unpack(File zip, File targetDirectory) throws IOException {
 
@@ -162,7 +155,6 @@ public final class ZipUtils {
 	 * @param entry name of the entry you want to extract
 	 * @param target the target file
 	 * @throws IOException if an I/O error occurs
-	 * @since 1.0.0
 	 */
 	public static final void extract(File zip, String entry, File target) throws IOException {
 

@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 package de.ralleytn.utils;
 
 import java.io.IOException;
@@ -42,8 +41,6 @@ import java.util.Map;
 /**
  * Provides some helpful methods regarding the world wide web.
  * @author Ralph Niemitz/RalleYTN(ralph.niemitz@gmx.de)
- * @version 1.0.0
- * @since 1.0.0
  */
 public final class NetUtils {
 
@@ -54,7 +51,6 @@ public final class NetUtils {
 	 * @param url the URL you want to extract the query parameters from
 	 * @return A map with all the query parameters of the given URL
 	 * @throws UnsupportedEncodingException if UTF-8 is not supported... that should really not happen
-	 * @since 1.0.0
 	 */
 	public static final Map<String, ?> getQueryParams(URL url) throws UnsupportedEncodingException {
 
@@ -111,7 +107,6 @@ public final class NetUtils {
 	 * @return A map with all the query parameters of the given URL
 	 * @throws MalformedURLException if no protocol is specified, or an unknown protocol is found, or spec is {@code null}.
 	 * @throws UnsupportedEncodingException if UTF-8 is not supported... that should really not happen
-	 * @since 1.0.0
 	 */
 	public static final Map<String, ?> getQueryParams(String url) throws MalformedURLException, UnsupportedEncodingException {
 		
@@ -123,7 +118,6 @@ public final class NetUtils {
 	 * @param map the map from which the query string should be built
 	 * @return the resulting query string
 	 * @throws UnsupportedEncodingException if UTF-8 is not supported... that should really not happen
-	 * @since 1.0.0
 	 */
 	public static final String getQueryString(Map<String, ?> map) throws UnsupportedEncodingException {
 
@@ -168,7 +162,6 @@ public final class NetUtils {
 	 * @param timeout
 	 * @return
 	 * @throws IOException
-	 * @since 1.0.0
 	 */
 	public static final boolean isHostAvailable(String host, int port, int timeout) throws IOException {
 
@@ -185,7 +178,6 @@ public final class NetUtils {
 	 * @param port
 	 * @return
 	 * @throws IOException
-	 * @since 1.0.0
 	 */
 	public static final boolean isHostAvailable(String host, int port) throws IOException {
 		
@@ -197,7 +189,6 @@ public final class NetUtils {
 	 * @param shortURL
 	 * @return
 	 * @throws IOException
-	 * @since 1.0.0
 	 */
 	public static final URL getLongURL(String shortURL) throws IOException {
 		
@@ -209,7 +200,6 @@ public final class NetUtils {
 	 * @param shortURL
 	 * @return
 	 * @throws IOException
-	 * @since 1.0.0
 	 */
 	public static final URL getLongURL(URL shortURL) throws IOException {
 		

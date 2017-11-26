@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 package de.ralleytn.utils;
 
 import java.io.File;
@@ -37,8 +36,6 @@ import java.util.function.Consumer;
 /**
  * Provides useful methods for working with files.
  * @author Ralph Niemitz/RalleYTN(ralph.niemitz@gmx.de)
- * @version 1.0.0
- * @since 1.0.0
  */
 public final class FileUtils {
 
@@ -50,7 +47,6 @@ public final class FileUtils {
 	 * @param targetDirectory the directory in which the file should end up
 	 * @return the moved file
 	 * @throws IOException if an I/O error occurs
-	 * @since 1.0.0
 	 */
 	public static final File move(File file, File targetDirectory) throws IOException {
 		
@@ -68,7 +64,6 @@ public final class FileUtils {
 	 * @param targetDirectory the directory in which the copy should end up
 	 * @return the copied file
 	 * @throws IOException if an I/O error occurs
-	 * @since 1.0.0
 	 */
 	public static final File copy(File file, File targetDirectory) throws IOException {
 		
@@ -85,7 +80,6 @@ public final class FileUtils {
 	 * @param name relative name of the temp file from the temp directory as root
 	 * @return the created temp file
 	 * @throws IOException if an I/O error occurs
-	 * @since 1.0.0
 	 */
 	public static final File createTempFile(String name) throws IOException {
 
@@ -106,7 +100,6 @@ public final class FileUtils {
 	/**
 	 * Deletes a directory.
 	 * @param directory the directory that should be deleted
-	 * @since 1.0.0
 	 */
 	public static final void deleteDirectory(File directory) {
 		
@@ -130,7 +123,6 @@ public final class FileUtils {
 	 * Crawls through the file structure of a root directory.
 	 * @param root the root directory
 	 * @param callback the function to call on all files
-	 * @since 1.0.0
 	 */
 	public static final void crawl(File root, Consumer<File> callback) {
 		
@@ -157,7 +149,6 @@ public final class FileUtils {
 	 * @param root the root directory
 	 * @param filter the filter to apply
 	 * @return a list of all filtered files
-	 * @since 1.0.0
 	 */
 	public static final List<File> search(File root, FileFilter filter) {
 		

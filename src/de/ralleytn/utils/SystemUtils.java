@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 package de.ralleytn.utils;
 
 import java.awt.AWTException;
@@ -47,8 +46,6 @@ import java.util.Map;
 /**
  * Provides some helpful methods if you want to get some informations from the system.
  * @author Ralph Niemitz/RalleYTN(ralph.niemitz@gmx.de)
- * @version 1.1.1
- * @since 1.0.0
  */
 public final class SystemUtils {
 
@@ -56,7 +53,6 @@ public final class SystemUtils {
 	
 	/**
 	 * @return {@code true} if this program runs in a 64Bit Java Virtual Mashine, else {@code false}
-	 * @since 1.0.0
 	 */
 	public static final boolean is64Bit() {
 		
@@ -65,7 +61,6 @@ public final class SystemUtils {
 	
 	/**
 	 * @return {@code true} if num lock is activated, else {@code false}
-	 * @since 1.0.0
 	 */
 	public static final boolean isNumLock() {
 		
@@ -74,7 +69,6 @@ public final class SystemUtils {
 	
 	/**
 	 * @return {@code true} if caps lock is activated, else {@code false}
-	 * @since 1.0.0
 	 */
 	public static final boolean isCapsLock() {
 		
@@ -83,7 +77,6 @@ public final class SystemUtils {
 	
 	/**
 	 * Emits an audio beep depending on native system settings and hardware capabilities.
-	 * @since 1.0.0
 	 */
 	public static final void beep() {
 		
@@ -99,7 +92,6 @@ public final class SystemUtils {
 	 * @throws NoSuchFieldException
 	 * @throws IllegalArgumentException
 	 * @throws IllegalAccessException
-	 * @since 1.0.0
 	 */
 	public static final void addDirectoryToLibraryPath(String directory) throws SecurityException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
 
@@ -114,7 +106,6 @@ public final class SystemUtils {
 	 * @param name name of the variable
 	 * @return the value of the environment variable
 	 * @throws SecurityException If you do not have the permission to read the given variable
-	 * @since 1.0.0
 	 */
 	public final String getEnvironmentVariable(String name) throws SecurityException {
 		
@@ -127,7 +118,6 @@ public final class SystemUtils {
 	 * system does not support environment variables, an empty map is returned. The returned map will never
 	 * contain null keys or values.
 	 * @throws SecurityException If you do not have the permission to read environment variables
-	 * @since 1.0.0
 	 */
 	public final Map<String, String> getEnvironmentVariables() throws SecurityException {
 		
@@ -139,7 +129,6 @@ public final class SystemUtils {
 	 * @param cmd batch of commands
 	 * @return the instance of {@linkplain Process} in which the commands are executed
 	 * @throws IOException if an I/O error occurs
-	 * @since 1.0.0
 	 */
 	public static final Process execute(String... cmd) throws IOException {
 		
@@ -152,7 +141,6 @@ public final class SystemUtils {
 	 * @return
 	 * @throws IOException
 	 * @throws URISyntaxException
-	 * @since 1.0.0
 	 */
 	public final Process openNativeBrowser(String url) throws IOException, URISyntaxException {
 
@@ -208,7 +196,6 @@ public final class SystemUtils {
 	
 	/**
 	 * @return the maximum amount of memory that the virtual machine will attempt to use, measured in bytes
-	 * @since 1.0.0
 	 */
 	public static final long getMaximumMemory() {
 		
@@ -217,7 +204,6 @@ public final class SystemUtils {
 	
 	/**
 	 * @return the total amount of memory currently available for current and future objects, measured in bytes
-	 * @since 1.0.0
 	 */
 	public static final long getTotalMemory() {
 		
@@ -226,7 +212,6 @@ public final class SystemUtils {
 	
 	/**
 	 * @return an approximation to the total amount of memory currently available for future allocated objects, measured in bytes
-	 * @since 1.0.0
 	 */
 	public static final long getFreeMemory() {
 		
@@ -235,7 +220,6 @@ public final class SystemUtils {
 	
 	/**
 	 * @return the maximum number of processors available to the virtual machine; never smaller than one
-	 * @since 1.0.0
 	 */
 	public static final int getNumberOfProcessors() {
 		
@@ -244,7 +228,6 @@ public final class SystemUtils {
 	
 	/**
 	 * @return the {@linkplain GraphicsDevice} object representing the default screen
-	 * @since 1.0.0
 	 */
 	public static final GraphicsDevice getDefaultScreen() {
 		
@@ -253,7 +236,6 @@ public final class SystemUtils {
 	
 	/**
 	 * @return an array containing all the {@linkplain GraphicsDevice} objects that represent screen devices
-	 * @since 1.0.0
 	 */
 	public static final GraphicsDevice[] getScreens() {
 		
@@ -262,7 +244,6 @@ public final class SystemUtils {
 	
 	/**
 	 * @return A {@linkplain Dimension} object containg the screen size of the default screen
-	 * @since 1.0.0
 	 */
 	public static final Dimension getScreenSize() {
 		
@@ -272,7 +253,6 @@ public final class SystemUtils {
 	/**
 	 * @return a screenshot of the default screen
 	 * @throws AWTException if the platform configuration does not allow low-level input control. This exception is always thrown when {@linkplain GraphicsEnvironment#isHeadless()} returns {@code true}
-	 * @since 1.0.0
 	 */
 	public static final BufferedImage screenshot() throws AWTException {
 		
@@ -285,7 +265,6 @@ public final class SystemUtils {
 	 * @param complete {@code true} if the screenshot should include all screens, {@code false} for the default screen only
 	 * @return a screenshot
 	 * @throws AWTException if the platform configuration does not allow low-level input control. This exception is always thrown when {@linkplain GraphicsEnvironment#isHeadless()} returns {@code true}
-	 * @since 1.1.1
 	 */
 	public static final BufferedImage screenshot(boolean complete) throws AWTException {
 		
@@ -306,7 +285,6 @@ public final class SystemUtils {
 	
 	/**
 	 * @return the number of buttons on the mouse... duh!
-	 * @since 1.0.0
 	 */
 	public static final int getNumberOfMouseButtons() {
 		
@@ -315,7 +293,6 @@ public final class SystemUtils {
 	
 	/**
 	 * @return the {@linkplain GraphicsDevice} object representing the screen the mouse cursor is currently in
-	 * @since 1.0.0
 	 */
 	public static final GraphicsDevice getScreenWithMouseCursorInIt() {
 
@@ -324,7 +301,6 @@ public final class SystemUtils {
 	
 	/**
 	 * @return the position of the mouse cursor
-	 * @since 1.1.1
 	 */
 	public static final Point getMouseCursorLocation() {
 		
@@ -333,7 +309,6 @@ public final class SystemUtils {
 	
 	/**
 	 * @return the operating system in which this program is run
-	 * @since 1.0.0
 	 */
 	public static final OperatingSystem getOperatingSystem() {
 		
@@ -343,7 +318,6 @@ public final class SystemUtils {
 	
 	/**
 	 * @return the system language
-	 * @since 1.0.0
 	 */
 	public static final String getLanguage() {
 		
@@ -352,7 +326,6 @@ public final class SystemUtils {
 	
 	/**
 	 * @return the system country
-	 * @since 1.0.0
 	 */
 	public static final String getCountry() {
 		
@@ -361,7 +334,6 @@ public final class SystemUtils {
 	
 	/**
 	 * @return a {@linkplain File} object representing the temp directory of the JVM (by default also the system temp directory)
-	 * @since 1.0.0
 	 */
 	public static final File getTempDirectory() {
 		
@@ -370,7 +342,6 @@ public final class SystemUtils {
 	
 	/**
 	 * @return the home directory of the currently logged in user
-	 * @since 1.0.0
 	 */
 	public static final File getUserHomeDirectory() {
 		
@@ -379,7 +350,6 @@ public final class SystemUtils {
 	
 	/**
 	 * @return the name of the currently logged in user
-	 * @since 1.0.0
 	 */
 	public static final String getUsername() {
 		
@@ -388,7 +358,6 @@ public final class SystemUtils {
 	
 	/**
 	 * @return the java version with which this program is run
-	 * @since 1.0.0
 	 */
 	public static final String getJavaVersion() {
 		
@@ -398,44 +367,36 @@ public final class SystemUtils {
 	/**
 	 * Representing an operating system.
 	 * @author Ralph Niemitz/RalleYTN(ralph.niemitz@gmx.de)
-	 * @version 1.0.0
-	 * @since 1.0.0
 	 */
 	public static enum OperatingSystem {
 		
 		/**
 		 * Windows
-		 * @since 1.0.0
 		 */
 		WINDOWS,
 		
 		/**
 		 * Linux
-		 * @since 1.0.0
 		 */
 		LINUX,
 		
 		/**
 		 * Mac OS X
-		 * @since 1.0.0
 		 */
 		MAC,
 		
 		/**
 		 * Android
-		 * @since 1.0.0
 		 */
 		ANDROID,
 		
 		/**
 		 * Solaris
-		 * @since 1.0.0
 		 */
 		SOLARIS,
 		
 		/**
 		 * Unknown
-		 * @since 1.0.0
 		 */
 		UNKNOWN;
 	}

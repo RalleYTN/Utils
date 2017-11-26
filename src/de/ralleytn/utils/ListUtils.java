@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 package de.ralleytn.utils;
 
 import java.lang.reflect.Array;
@@ -30,8 +29,6 @@ import java.util.List;
 /**
  * 
  * @author Ralph Niemitz/RalleYTN(ralph.niemitz@gmx.de)
- * @version 2017-07-26
- * @since 2017-07-26
  */
 public final class ListUtils {
 
@@ -41,7 +38,6 @@ public final class ListUtils {
 	 * 
 	 * @param list
 	 * @param elements
-	 * @since 2017-07-26
 	 */
 	public static final <T>void addAll(List<T> list, T[] elements) {
 		
@@ -56,7 +52,6 @@ public final class ListUtils {
 	 * @param list
 	 * @param type
 	 * @return
-	 * @since 2017-07-26
 	 */
 	public static final <T>T[] toArray(List<T> list, Class<T> type) {
 		
@@ -75,7 +70,6 @@ public final class ListUtils {
 	 * 
 	 * @param list
 	 * @return
-	 * @since 2017-07-26
 	 */
 	public static final double[] toPrimitiveDoubleArray(List<Double> list) {
 		
@@ -93,7 +87,6 @@ public final class ListUtils {
 	 * 
 	 * @param list
 	 * @return
-	 * @since 2017-07-26
 	 */
 	public static final float[] toPrimitiveFloatArray(List<Float> list) {
 		
@@ -111,7 +104,6 @@ public final class ListUtils {
 	 * 
 	 * @param list
 	 * @return
-	 * @since 2017-07-26
 	 */
 	public static final long[] toPrimitiveLongArray(List<Long> list) {
 		
@@ -129,7 +121,6 @@ public final class ListUtils {
 	 * 
 	 * @param list
 	 * @return
-	 * @since 2017-07-26
 	 */
 	public static final int[] toPrimitiveIntArray(List<Integer> list) {
 		
@@ -147,7 +138,6 @@ public final class ListUtils {
 	 * 
 	 * @param list
 	 * @return
-	 * @since 2017-07-26
 	 */
 	public static final short[] toPrimitiveShortArray(List<Short> list) {
 		
@@ -165,7 +155,6 @@ public final class ListUtils {
 	 * 
 	 * @param list
 	 * @return
-	 * @since 2017-07-26
 	 */
 	public static final byte[] toPrimitiveByteArray(List<Byte> list) {
 		
@@ -183,7 +172,6 @@ public final class ListUtils {
 	 * 
 	 * @param list
 	 * @return
-	 * @since 2017-07-26
 	 */
 	public static final char[] toPrimitiveCharArray(List<Character> list) {
 		
@@ -201,7 +189,6 @@ public final class ListUtils {
 	 * 
 	 * @param list
 	 * @return
-	 * @since 2017-07-26
 	 */
 	public static final boolean[] toPrimitiveBooleanArray(List<Boolean> list) {
 		
@@ -221,7 +208,6 @@ public final class ListUtils {
 	 * @return
 	 * @throws InstantiationException
 	 * @throws IllegalAccessException
-	 * @since 2017-07-26
 	 */
 	public static final <T>List<T> clone(List<T> list) throws InstantiationException, IllegalAccessException {
 		

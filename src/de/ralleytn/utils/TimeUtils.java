@@ -1,3 +1,26 @@
+/*
+ * MIT License
+ * 
+ * Copyright (c) 2017 Ralph Niemitz
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 package de.ralleytn.utils;
 
 import java.text.DateFormat;
@@ -6,124 +29,45 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * 
+ * Provides utility methods for the Java Date API (pre Java 8).
  * @author Ralph Niemitz(ralph.niemitz@gmx.de)
- * @version 17.06.2017
- * @since 17.06.2017
  */
-public final class Java7TimeUtils {
+public final class TimeUtils {
 
-	/**
-	 * @since 17.06.2017
-	 */
 	public static final int MONTH_JANUARY = 1;
-	
-	/**
-	 * @since 17.06.2017
-	 */
 	public static final int MONTH_FEBRUARY = 2;
-	
-	/**
-	 * @since 17.06.2017
-	 */
 	public static final int MONTH_MARCH = 3;
-	
-	/**
-	 * @since 17.06.2017
-	 */
 	public static final int MONTH_APRIL = 4;
-	
-	/**
-	 * @since 17.06.2017
-	 */
 	public static final int MONTH_MAY = 5;
-	
-	/**
-	 * @since 17.06.2017
-	 */
 	public static final int MONTH_JUNE = 6;
-	
-	/**
-	 * @since 17.06.2017
-	 */
 	public static final int MONTH_JULY = 7;
-	
-	/**
-	 * @since 17.06.2017
-	 */
 	public static final int MONTH_AUGUST = 8;
-	
-	/**
-	 * @since 17.06.2017
-	 */
 	public static final int MONTH_SEPTEMBER = 9;
-	
-	/**
-	 * @since 17.06.2017
-	 */
 	public static final int MONTH_OCTOBER = 10;
-	
-	/**
-	 * @since 17.06.2017
-	 */
 	public static final int MONTH_NOVEMBER = 11;
-	
-	/**
-	 * @since 17.06.2017
-	 */
 	public static final int MONTH_DECEMBER = 12;
 	
-	/**
-	 * @since 17.06.2017
-	 */
 	public static final long DAY_IN_MILLISECONDS = (long)8.64e+7;
-	
-	/**
-	 * @since 17.06.2017
-	 */
 	public static final long HOUR_IN_MILLISECONDS = (long)3.6e+6;
-	
-	/**
-	 * @since 17.06.2017
-	 */
 	public static final long MINUTE_IN_MILLISECONDS = 60000L;
-	
-	/**
-	 * @since 17.06.2017
-	 */
 	public static final long SECOND_IN_MILLISECONDS = 1000L;
-	
-	/**
-	 * @since 17.06.2017
-	 */
+
 	public static final DateFormat FORMAT_ISO_DATE = new SimpleDateFormat("yyyy-MM-dd");
-	
-	/**
-	 * @since 17.06.2017
-	 */
 	public static final DateFormat FORMAT_ISO_TIME = new SimpleDateFormat("HH:mm:ss");
-	
-	/**
-	 * @since 17.06.2017
-	 */
 	public static final DateFormat FORMAT_ISO_DATE_TIME = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
-	private Java7TimeUtils() {}
+	private TimeUtils() {}
 	
 	/**
-	 * 
-	 * @return
-	 * @since 17.06.2017
+	 * @return the {@linkplain Date} instance for tomorrow (time stays the same)
 	 */
 	public static final Date tomorrow() {
 		
-		return new Date(System.currentTimeMillis() + Java7TimeUtils.DAY_IN_MILLISECONDS);
+		return new Date(System.currentTimeMillis() + TimeUtils.DAY_IN_MILLISECONDS);
 	}
 	
 	/**
-	 * 
-	 * @return
-	 * @since 17.06.2017
+	 * @return the {@linkplain Date} instance for the current moment
 	 */
 	public static final Date now() {
 		
@@ -131,14 +75,12 @@ public final class Java7TimeUtils {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return the {@linkplain Date} instance for today (time is 00:00:00)
 	 * @throws ParseException
-	 * @since 17.06.2017
 	 */
 	public static final Date today() throws ParseException {
 		
-		return Java7TimeUtils.FORMAT_ISO_DATE.parse(Java7TimeUtils.FORMAT_ISO_DATE.format(new Date()));
+		return TimeUtils.FORMAT_ISO_DATE.parse(TimeUtils.FORMAT_ISO_DATE.format(new Date()));
 	}
 	
 	/**
@@ -146,11 +88,10 @@ public final class Java7TimeUtils {
 	 * @param date
 	 * @param days
 	 * @return
-	 * @since 17.06.2017
 	 */
 	public static final Date substractDays(Date date, int days) {
 		
-		return new Date(date.getTime() - (days * Java7TimeUtils.DAY_IN_MILLISECONDS));
+		return new Date(date.getTime() - (days * TimeUtils.DAY_IN_MILLISECONDS));
 	}
 	
 	/**
@@ -158,11 +99,10 @@ public final class Java7TimeUtils {
 	 * @param date
 	 * @param days
 	 * @return
-	 * @since 17.06.2017
 	 */
 	public static final Date addDays(Date date, int days) {
 		
-		return new Date(date.getTime() + (days * Java7TimeUtils.DAY_IN_MILLISECONDS));
+		return new Date(date.getTime() + (days * TimeUtils.DAY_IN_MILLISECONDS));
 	}
 	
 	/**
@@ -175,7 +115,6 @@ public final class Java7TimeUtils {
 	 * @param second
 	 * @return
 	 * @throws ParseException
-	 * @since 17.06.2017
 	 */
 	public static final Date getDateTime(int day, int month, int year, int hour, int minute, int second) throws ParseException {
 		
@@ -234,7 +173,7 @@ public final class Java7TimeUtils {
 			builder.insert(17, '0');
 		}
 		
-		return Java7TimeUtils.FORMAT_ISO_DATE_TIME.parse(builder.toString());
+		return TimeUtils.FORMAT_ISO_DATE_TIME.parse(builder.toString());
 	}
 	
 	/**
@@ -244,7 +183,6 @@ public final class Java7TimeUtils {
 	 * @param second
 	 * @return
 	 * @throws ParseException
-	 * @since 17.06.2017
 	 */
 	public static final Date getTime(int hour, int minute, int second) throws ParseException {
 		
@@ -277,9 +215,9 @@ public final class Java7TimeUtils {
 		}
 		
 		builder.insert(0, ' ');
-		builder.insert(0, Java7TimeUtils.FORMAT_ISO_DATE.format(Java7TimeUtils.now()));
+		builder.insert(0, TimeUtils.FORMAT_ISO_DATE.format(TimeUtils.now()));
 
-		return Java7TimeUtils.FORMAT_ISO_DATE_TIME.parse(builder.toString());
+		return TimeUtils.FORMAT_ISO_DATE_TIME.parse(builder.toString());
 	}
 	
 	/**
@@ -289,7 +227,6 @@ public final class Java7TimeUtils {
 	 * @param year
 	 * @return
 	 * @throws ParseException
-	 * @since 17.06.2017
 	 */
 	public static final Date getDate(int day, int month, int year) throws ParseException {
 		
@@ -321,6 +258,6 @@ public final class Java7TimeUtils {
 			builder.insert(8, '0');
 		}
 
-		return Java7TimeUtils.FORMAT_ISO_DATE.parse(builder.toString());
+		return TimeUtils.FORMAT_ISO_DATE.parse(builder.toString());
 	}
 }
