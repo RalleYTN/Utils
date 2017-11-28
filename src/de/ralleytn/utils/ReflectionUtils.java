@@ -43,6 +43,44 @@ import java.util.jar.JarInputStream;
 public final class ReflectionUtils {
 
 	private ReflectionUtils() {}
+
+	/**
+	 * 
+	 * @param type
+	 * @param name
+	 * @return
+	 */
+	public static final <T extends Enum<?>>T getEnumBasedOnName(Class<T> type, String name) {
+		
+		for(T element : type.getEnumConstants()) {
+			
+			if(element.name().equals(name)) {
+				
+				return element;
+			}
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * 
+	 * @param type
+	 * @param string
+	 * @return
+	 */
+	public static final <T extends Enum<?>>T getEnumBasedOnToString(Class<T> type, String string) {
+		
+		for(T element : type.getEnumConstants()) {
+			
+			if(element.toString().equals(string)) {
+				
+				return element;
+			}
+		}
+		
+		return null;
+	}
 	
 	public static final List<Class<?>> getAllClassesThatExtend(Class<?> superClass) throws IOException, ClassNotFoundException {
 		

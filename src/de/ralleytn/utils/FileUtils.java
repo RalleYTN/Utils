@@ -41,6 +41,11 @@ public final class FileUtils {
 
 	private FileUtils() {}
 	
+	public static final File getTempDirectory() {
+		
+		return new File(System.getProperty("java.io.tmpdir"));
+	}
+	
 	/**
 	 * Moves a file into another directory.
 	 * @param file the file you want to move

@@ -37,6 +37,350 @@ public final class ArrayUtils {
 	
 	/**
 	 * 
+	 * @param list
+	 * @return
+	 */
+	public static final boolean[] toBooleanArray(List<Boolean> list) {
+		
+		boolean[] array = new boolean[list.size()];
+		
+		for(int index = 0; index < array.length; index++) {
+			
+			array[index] = list.get(index);
+		}
+		
+		return array;
+	}
+	
+	/**
+	 * 
+	 * @param list
+	 * @return
+	 */
+	public static final byte[] toByteArray(List<Byte> list) {
+		
+		byte[] array = new byte[list.size()];
+		
+		for(int index = 0; index < array.length; index++) {
+			
+			array[index] = list.get(index);
+		}
+		
+		return array;
+	}
+	
+	/**
+	 * 
+	 * @param list
+	 * @return
+	 */
+	public static final short[] toShortArray(List<Short> list) {
+		
+		short[] array = new short[list.size()];
+		
+		for(int index = 0; index < array.length; index++) {
+			
+			array[index] = list.get(index);
+		}
+		
+		return array;
+	}
+	
+	/**
+	 * 
+	 * @param list
+	 * @return
+	 */
+	public static final int[] toIntArray(List<Integer> list) {
+		
+		int[] array = new int[list.size()];
+		
+		for(int index = 0; index < array.length; index++) {
+			
+			array[index] = list.get(index);
+		}
+		
+		return array;
+	}
+	
+	/**
+	 * 
+	 * @param list
+	 * @return
+	 */
+	public static final long[] toLongArray(List<Long> list) {
+		
+		long[] array = new long[list.size()];
+		
+		for(int index = 0; index < array.length; index++) {
+			
+			array[index] = list.get(index);
+		}
+		
+		return array;
+	}
+	
+	/**
+	 * 
+	 * @param list
+	 * @return
+	 */
+	public static final float[] toFloatArray(List<Float> list) {
+		
+		float[] array = new float[list.size()];
+		
+		for(int index = 0; index < array.length; index++) {
+			
+			array[index] = list.get(index);
+		}
+		
+		return array;
+	}
+	
+	/**
+	 * 
+	 * @param list
+	 * @return
+	 */
+	public static final double[] toDoubleArray(List<Double> list) {
+		
+		double[] array = new double[list.size()];
+		
+		for(int index = 0; index < array.length; index++) {
+			
+			array[index] = list.get(index);
+		}
+		
+		return array;
+	}
+	
+	/**
+	 * 
+	 * @param list
+	 * @return
+	 */
+	public static final char[] toCharArray(List<Character> list) {
+		
+		char[] array = new char[list.size()];
+		
+		for(int index = 0; index < array.length; index++) {
+			
+			array[index] = list.get(index);
+		}
+		
+		return array;
+	}
+	
+	/**
+	 * 
+	 * @param <T>
+	 * @param lists
+	 * @return
+	 */
+	@SafeVarargs
+	public static final <T>List<T> mergeLists(List<T>... lists) {
+		
+		List<T> result = new ArrayList<T>();
+		
+		if(lists != null) {
+			
+			for(List<T> list : lists) {
+				
+				for(T element : list) {
+					
+					result.add(element);
+				}
+			}
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * 
+	 * @param <T>
+	 * @param type
+	 * @param array
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public static final <T>T[] unique(Class<T> type, T[] array) {
+		
+		ArrayList<T> list = new ArrayList<T>();
+		
+		for(T element : array) {
+			
+			if(!list.contains(element)) {
+				
+				list.add(element);
+			}
+		}
+		
+		return list.toArray((T[])Array.newInstance(type, list.size()));
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 */
+	public static final boolean[] unique(boolean[] array) {
+		
+		ArrayList<Boolean> list = new ArrayList<Boolean>();
+		
+		for(boolean element : array) {
+			
+			if(!list.contains(element)) {
+				
+				list.add(element);
+			}
+		}
+		
+		return ArrayUtils.toBooleanArray(list);
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 */
+	public static final byte[] unique(byte[] array) {
+		
+		ArrayList<Byte> list = new ArrayList<Byte>();
+		
+		for(byte element : array) {
+			
+			if(!list.contains(element)) {
+				
+				list.add(element);
+			}
+		}
+		
+		return ArrayUtils.toByteArray(list);
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 */
+	public static final short[] unique(short[] array) {
+		
+		ArrayList<Short> list = new ArrayList<Short>();
+		
+		for(short element : array) {
+			
+			if(!list.contains(element)) {
+				
+				list.add(element);
+			}
+		}
+		
+		return ArrayUtils.toShortArray(list);
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 */
+	public static final int[] unique(int[] array) {
+		
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		
+		for(int element : array) {
+			
+			if(!list.contains(element)) {
+				
+				list.add(element);
+			}
+		}
+		
+		return ArrayUtils.toIntArray(list);
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 */
+	public static final long[] unique(long[] array) {
+		
+		ArrayList<Long> list = new ArrayList<Long>();
+		
+		for(long element : array) {
+			
+			if(!list.contains(element)) {
+				
+				list.add(element);
+			}
+		}
+		
+		return ArrayUtils.toLongArray(list);
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 */
+	public static final float[] unique(float[] array) {
+		
+		ArrayList<Float> list = new ArrayList<Float>();
+		
+		for(float element : array) {
+			
+			if(!list.contains(element)) {
+				
+				list.add(element);
+			}
+		}
+		
+		return ArrayUtils.toFloatArray(list);
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 */
+	public static final double[] unique(double[] array) {
+		
+		ArrayList<Double> list = new ArrayList<Double>();
+		
+		for(double element : array) {
+			
+			if(!list.contains(element)) {
+				
+				list.add(element);
+			}
+		}
+		
+		return ArrayUtils.toDoubleArray(list);
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 */
+	public static final char[] unique(char[] array) {
+		
+		ArrayList<Character> list = new ArrayList<Character>();
+		
+		for(char element : array) {
+			
+			if(!list.contains(element)) {
+				
+				list.add(element);
+			}
+		}
+		
+		return ArrayUtils.toCharArray(list);
+	}
+	
+	/**
+	 * 
 	 * @param array
 	 * @param value
 	 */

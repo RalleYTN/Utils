@@ -23,8 +23,14 @@
  */
 package de.ralleytn.utils;
 
+import java.io.UnsupportedEncodingException;
 import java.text.Normalizer;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.xml.bind.DatatypeConverter;
 
 /**
  * Provides some helpful methods regarding strings.
@@ -33,6 +39,202 @@ import java.util.ArrayList;
 public final class StringUtils {
 
 	private StringUtils() {}
+	
+	
+	/**
+	 * 
+	 * @param string
+	 * @param left
+	 * @param right
+	 * @return
+	 */
+	public static final String chop(String string, int left, int right) {
+		
+		return string.substring(left, string.length() - right);
+	}
+
+	/**
+	 * 
+	 * @param string
+	 * @return
+	 */
+	public static final String chop(String string) {
+		
+		return string.substring(1, string.length() - 1);
+	}
+
+	/**
+	 * 
+	 * @param string
+	 * @return
+	 */
+	public static final String chopLeft(String string) {
+		
+		return string.substring(1);
+	}
+
+	/**
+	 * 
+	 * @param string
+	 * @return
+	 */
+	public static final String chopRight(String string) {
+		
+		return string.substring(0, string.length() - 1);
+	}
+	
+	/**
+	 * 
+	 * @param strings
+	 * @param connector
+	 * @return
+	 */
+	public static final String join(Iterable<String> strings, String connector) {
+		
+		StringBuilder builder = new StringBuilder();
+		boolean first = true;
+		
+		for(String string : strings) {
+			
+			if(first) {
+				
+				first = false;
+				
+			} else {
+				
+				builder.append(connector);
+			}
+			
+			builder.append(string);
+		}
+		
+		return builder.toString();
+	}
+	
+	/**
+	 * 
+	 * @param string
+	 * @param maskMap
+	 * @return
+	 */
+	public static final String escape(String string, Map<Character, String> maskMap) {
+		
+		StringBuilder builder = new StringBuilder();
+		
+		for(char character : string.toCharArray()) {
+			
+			if(maskMap.containsKey(character)) {
+				
+				builder.append(maskMap.get(character));
+				
+			} else {
+				
+				builder.append(character);
+			}
+		}
+		
+		return builder.toString();
+	}
+	
+	/**
+	 * 
+	 * @param xml
+	 * @return
+	 */
+	public static final String escapeXML(String xml) {
+		
+		Map<Character, String> maskMap = new HashMap<>();
+		maskMap.put('"', "&quot;");
+		maskMap.put('\'', "&apos;");
+		maskMap.put('<', "&lt;");
+		maskMap.put('>', "&gt;");
+		maskMap.put('&', "&amp;");
+		
+		return StringUtils.escape(xml, maskMap);
+	}
+	
+	/**
+	 * 
+	 * @param text
+	 * @param character
+	 * @return
+	 */
+	public static final List<String> split(String text, char character) {
+		
+		List<String> splitted = new ArrayList<String>();
+		char[] characters = text.toCharArray();
+		StringBuilder builder = new StringBuilder();
+		
+		for(char c : characters) {
+			
+			if(c == character) {
+				
+				splitted.add(builder.toString());
+				builder.delete(0, builder.length());
+				
+			} else {
+				
+				builder.append(c);
+			}
+		}
+		
+		splitted.add(builder.toString());
+		return splitted;
+	}
+	
+	/**
+	 * 
+	 * @param text
+	 * @param charset
+	 * @return
+	 * @throws UnsupportedEncodingException
+	 */
+	public static final String encodeBase64(String text, String charset) throws UnsupportedEncodingException {
+		
+		return DatatypeConverter.printBase64Binary(text.getBytes(charset));
+	}
+	
+	/**
+	 * 
+	 * @param text
+	 * @return
+	 */
+	public static final String encodeBase64(String text) {
+		
+		return DatatypeConverter.printBase64Binary(text.getBytes());
+	}
+	
+	/**
+	 * 
+	 * @param b64
+	 * @param charset
+	 * @return
+	 * @throws UnsupportedEncodingException
+	 */
+	public static final String decodeBase64(String b64, String charset) throws UnsupportedEncodingException {
+		
+		return new String(DatatypeConverter.parseBase64Binary(b64), charset);
+	}
+	
+	/**
+	 * 
+	 * @param b64
+	 * @return
+	 */
+	public static final String decodeBase64(String b64) {
+		
+		return new String(DatatypeConverter.parseBase64Binary(b64));
+	}
+	
+	/**
+	 * 
+	 * @param string 
+	 * @return 
+	 */
+	public static final String getValidFileName(String string) {
+		
+		return string.replaceAll("[\\x00<>|?*:\"\\/\\\\]", "_");
+	}
 
 	/**
 	 * @param string the {@linkplain String} to process
