@@ -40,6 +40,43 @@ public final class StringUtils {
 
 	private StringUtils() {}
 	
+	/**
+	 * 
+	 * @param string
+	 * @param replacement
+	 * @return
+	 */
+	public static final String makeValidFileName(String string, String replacement) {
+		
+		return string.replaceAll("[\\x00<>|?*:\"\\/\\\\]", replacement);
+	}
+	
+	/**
+	 * 
+	 * @param string 
+	 * @return 
+	 */
+	public static final String makeValidFileName(String string) {
+		
+		return StringUtils.makeValidFileName(string, "_");
+	}
+	
+	/**
+	 * 
+	 * @param list
+	 * @return
+	 */
+	public static final List<String> toStringList(List<?> list) {
+		
+		List<String> newList = new ArrayList<String>();
+		
+		for(Object element : list) {
+			
+			newList.add("" + element);
+		}
+		
+		return newList;
+	}
 	
 	/**
 	 * 
